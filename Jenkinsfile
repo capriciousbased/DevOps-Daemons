@@ -7,12 +7,7 @@ pipeline {
     acr        = "devops2022.azurecr.io"
     image      = "comicbook"
     gitCred    = '2eb747c4-f19f-4601-ab83-359462e62482'
-    //gitCred    = 'devopsProjectTocken'
     dockerPath = "./Test"
-    // dockerPath = "./App/Docker/ColorQuiz"
-    // dockerPath = "./App/Docker/HtmlComicBook"
-    // dockerPath = "./App/Docker/ReactComicBook"
-
     // AUTOMATICALLY  GENERATED VARIABLES
     // These variables are automatically generated and should not be edited manually
     // Bash variables in SCREAMING_SNAKE_CASE
@@ -104,9 +99,6 @@ pipeline {
            ]]
           ]
         )
-        //sh "git fetch https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
-        //  sh "git merge --strategy-option ours origin/main"
-        //  sh "git checkout main" 
           sh "git status"
           sh "git branch"
           sh "chmod +x './BashScripts/deployFile1.sh'"
@@ -120,27 +112,5 @@ pipeline {
         }
       }
     }
-    //stage('DEPLOY DEPLOYMENT FILE2') {
-    //  when{ expression {isNewImage}}
-    //  steps {
-    //    checkout(
-    //      [
-    //        $class: 'GitSCM',
-    //        branches: [[name: ${branch}]],
-    //        doGenerateSubmoduleConfigurations: false,
-    //        extensions: [],
-    //        submoduleCfg: [],
-    //        userRemoteConfigs: [[
-    //           credentialsId: ${gitCred},
-    //           url: "https://${repo}"
-    //        ]]
-    //      ]
-    //    )
-    //    withCredentials([usernamePassword(credentialsId: ${gitCred}, passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-    //      sh "chmod +x ./BashScripts/deployFile2.sh"
-    //      sh ('./BashScripts/deployFile2.sh ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}') 
-    //    }
-    //  }
-    //}
   }
 }
