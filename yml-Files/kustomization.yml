@@ -1,7 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - allinone.yml
+  - ingress.yml
+  - service.yml
+  - deployment.yml
 images:
   - name: nginxcomic
-    newName: comicbook:ef520fa60ef7a23c21e4e41887ddb132aa3473e5
+    newName: comicbook:4d88f80a7bc83b18fc9d9d183167675db8f1bc96
