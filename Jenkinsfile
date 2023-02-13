@@ -106,7 +106,8 @@ pipeline {
         )
         withCredentials([usernamePassword(credentialsId: 'devopsProjectTocken', passwordVariable: 'GIT_PASSWORD',
                                           usernameVariable: 'GIT_USERNAME')]) {
-          sh "git pull https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
+          sh "git fetch https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
+          sh "git merge --strategy-option ours origin/main"
           ah "git checkout main" 
           sh "git status"
           sh "git branch"
