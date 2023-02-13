@@ -4,4 +4,4 @@ resources:
   - allinone.yml
 images:
   - name: nginxcomic
-    newName: devops2022.azurecr.io/comicbook:e0ce92242d3f6fc4fb19ff9f7f732c3a01e82d72
+    newName: devops2022.azurecr.io/comicbook:91bf67d6c5fda9d4103025ac8140ca7d2fb844d6
