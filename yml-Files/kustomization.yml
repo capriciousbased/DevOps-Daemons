@@ -4,4 +4,4 @@ resources:
   - deployment.service.ingress.yml
 images:
   - name: nginxcomic
-  newName: comicbook:5e8a06719527e397cc2ec500b663d2df5d836d67
+  - newName: comicbook:37707cad2ac09eba0e06d1977462c668fbf6d675
