@@ -105,11 +105,6 @@ pipeline {
         )
         withCredentials([usernamePassword(credentialsId: 'devopsProjectTocken', passwordVariable: 'GIT_PASSWORD',
                                           usernameVariable: 'GIT_USERNAME')]) {
-          // TO DO
-          sh "ls"
-          sh "ls './Bash Scripts'"
-          sh "cat './Bash Scripts/deployFile1.sh'"
-          // TO DO END
           sh "chmod +x './Bash Scripts/deployFile1.sh'"
           sh "'./Bash Scripts/deployFile1.sh' ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}"
         }
