@@ -6,14 +6,15 @@ do
   echo "$arg"
 done
 
-  echo 'apiVersion: kustomize.config.k8s.io/v1beta1             >  ./argocd/kustomize.yaml
-  echo" kind: Kustomization"                                    >> ./argocd/kustomize.yaml
-  echo" resources:"                                             >> ./argocd/kustomize.yaml  
-  echo"  - nginx.yml"                                           >> ./argocd/kustomize.yaml
-  echo" images:"                                                >> ./argocd/kustomize.yaml
-  echo "  - name: nginxcomic"                                   >> ./argocd/kustomize.yaml
-  echo "newName: $3:$4" >> ./kustomize.yaml
+  echo 'apiVersion: kustomize.config.k8s.io/v1beta1             >  ./yml-Files/kustomize.yml
+  echo" kind: Kustomization"                                    >> ./yml-Files/kustomize.yml
+  echo" resources:"                                             >> ./yml-Files/kustomize.yml 
+  echo"  - nginx.yml"                                           >> ./yml-Files/kustomize.yml
+  echo" images:"                                                >> ./yml-Files/kustomize.yml
+  echo "  - name: nginxcomic"                                   >> ./yml-Files/kustomize.yml
+  echo "newName: $3:$4" >> ./yml-Files/kustomize.yml
 
-git commit -m 'kustom [skip ci]'"
+git add ./yml-Files/kustomize.yml
+git commit -m 'jenkins '"
 sh git push "https://$4:$5 +'HEAD:main'
 
