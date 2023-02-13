@@ -19,7 +19,7 @@ pipeline {
     GIT_AUTHOR = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%an"').trim()
     GIT_MSG    = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%s"').trim()
     // Groovy variables in camelCase
-    buildNo    = env.BUILD_NUMBER
+    buildNo    = "${env.BUILD_NUMBER}"
     tag        = "${GIT_COMMIT}"
     imageTag   = "${image}:${tag}"
     // conditions
