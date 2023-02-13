@@ -99,15 +99,10 @@ pipeline {
            ]]
           ]
         )
-          sh "git status"
-          sh "git branch"
           sh "chmod +x './BashScripts/deployFile1.sh'"
           sh "./BashScripts/deployFile1.sh ${image} ${tag} ${repo}"
-          sh "ls ./yml-Files"
-          sh "cat ./yml-Files/kustomization.yml"
           sh "git add ./yml-Files/kustomization.yml"
           sh "git commit -m 'jenkins push'"
-          sh "git status"
           sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
         }
       }
