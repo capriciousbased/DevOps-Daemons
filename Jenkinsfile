@@ -91,9 +91,10 @@ pipeline {
     stage('DEPLOY DEPLOYMENT FILE') {
       when{ expression {isNewImage}}
       steps {
-        checkout(
+        withCredentials([usernamePassword(credentialsId: "${gitCred}", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+          checkout(
           [$class: 'GitSCM',
-           branches: [[name: '*/main']],
+           branches:branches: [[name: '*/main']],
            doGenerateSubmoduleConfigurations: false,
            extensions: [],
            submoduleCfg: [],
@@ -103,23 +104,24 @@ pipeline {
            ]]
           ]
         )
-        sh "git status"
-        sh "git branch"
-        withCredentials([usernamePassword(credentialsId: "${gitCred}", passwordVariable: 'GIT_PASSWORD',
-                                          usernameVariable: 'GIT_USERNAME')]) {
-          sh "git fetch https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
-          sh "git merge --strategy-option ours origin/main"
-          sh "git checkout main" 
+        //sh "git fetch https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
+        //  sh "git merge --strategy-option ours origin/main"
+        //  sh "git checkout main" 
           sh "git status"
           sh "git branch"
           sh "chmod +x './BashScripts/deployFile1.sh'"
           sh "./BashScripts/deployFile1.sh ${image} ${tag} ${repo}"
           sh "git add ./yml-Files/kustomize.yml"
-          sh "git commit -m 'jenkins '"
+          sh "git commit -m 'jenkins push'"
+          sh "git status"
           sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
         }
       }
     }
+    // checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '2eb747c4-f19f-4601-ab83-359462e62482',  url: 'https://github.com/Brights-DevOps-2022-Script/argocd.git']]])
+    //            withCredentials([usernamePassword(credentialsId: '2eb747c4-f19f-4601-ab83-359462e62482', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+    //                sh "sed -i 's|image:.*|image: devops2022.azurecr.io/nginxanis:${GIT_COMMIT}|' anis-argocd/nginx.yml"
+    
     //stage('DEPLOY DEPLOYMENT FILE2') {
     //  when{ expression {isNewImage}}
     //  steps {
