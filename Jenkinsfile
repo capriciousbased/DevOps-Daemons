@@ -104,6 +104,7 @@ pipeline {
            ]]
           ]
         )
+        sh "git checkout ${branch}"
         sh "git status"
         sh "git branch"
         withCredentials([usernamePassword(credentialsId: "${gitCred}", passwordVariable: 'GIT_PASSWORD',
