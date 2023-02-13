@@ -43,7 +43,6 @@ pipeline {
           println "Image tag         : ${imageTag}"
           println "ACR login Server  : ${acr}"
           println "Repo              : ${repo}"
-          println "Branch            : ${branch}"
           println "build number      : ${buildNO}"
         }
       }
@@ -94,7 +93,7 @@ pipeline {
       steps {
         checkout(
           [$class: 'GitSCM',
-           branches: [[name: "${branch}"]],
+           branches: [[name: '*/main']],
            doGenerateSubmoduleConfigurations: false,
            extensions: [],
            submoduleCfg: [],
@@ -114,7 +113,7 @@ pipeline {
           sh "git status"
           sh "git branch"
           sh "chmod +x './BashScripts/deployFile1.sh'"
-          sh "./BashScripts/deployFile1.sh ${imageTag} ${acr} ${repo}"
+          sh "./BashScripts/deployFile1.sh ${image} ${tag} ${repo}"
           sh "git add ./yml-Files/kustomize.yml"
           sh "git commit -m 'jenkins '"
           sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
