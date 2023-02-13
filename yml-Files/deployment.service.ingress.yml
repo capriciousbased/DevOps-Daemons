@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginxcomicbook
+  name: nginxcomicbook1
   #labels:
   # app: nginx
 spec:
@@ -23,7 +23,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginxcomicbook
+  name: nginxcomicbook2
 spec:
   selector:
     app: nginx
@@ -36,7 +36,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
- name: nginxcomicbook
+ name: nginxcomicbook3
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -49,6 +49,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: nginxcomicbook
+            name: nginxcomicbook2
             port:
               number: 80
