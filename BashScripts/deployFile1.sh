@@ -13,3 +13,7 @@ done
   echo" images:"                                                >> ./yml-Files/kustomize.yml
   echo "  - name: nginxcomic"                                   >> ./yml-Files/kustomize.yml
   echo "newName: $3:$4" >> ./yml-Files/kustomize.yml
+
+git add ./yml-Files/kustomize.yml
+git commit -m 'jenkins '"
+git push "https://$4:$5 +'HEAD:main'
