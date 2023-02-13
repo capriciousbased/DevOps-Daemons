@@ -6,7 +6,8 @@ pipeline {
     branch     = '*/main'
     acr        = "devops2022.azurecr.io"
     image      = "comicbook"
-    gitCred    = '2eb747c4-f19f-4601-ab83-359462e62482'
+    //gitCred    = '2eb747c4-f19f-4601-ab83-359462e62482'
+    gitCred    = 'devopsProjectTocken'
     dockerPath = "./Test"
     // dockerPath = "./App/Docker/ColorQuiz"
     // dockerPath = "./App/Docker/HtmlComicBook"
