@@ -1,3 +1,4 @@
+echo "running bash script deployFile1.sh"
 git pull "https://$1:$2@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
 git checkout main 
 
@@ -6,7 +7,7 @@ git checkout main
   echo" resources:"                                             >> ./argocd/kustomize.yaml  
   echo"  - nginx.yml"                                           >> ./argocd/kustomize.yaml
   echo" images:"                                                >> ./argocd/kustomize.yaml
-  echo "  - name: ANIS-NGINX"                                   >> ./argocd/kustomize.yaml
+  echo "  - name: nginxcomic"                                   >> ./argocd/kustomize.yaml
   echo "newName: $3:$4" >> ./kustomize.yaml
 
 git add ./kustomize.yaml"
