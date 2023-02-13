@@ -23,7 +23,7 @@ pipeline {
     tag        = "${GIT_COMMIT}"
     imageTag   = "${image}:${tag}"
     // conditions
-    isNewImage          = false
+    isNewImage          = true
     isNonBuildRelease   = false
     isJenkins           = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
   }
@@ -42,6 +42,7 @@ pipeline {
           println "Image tag         : ${imageTag}"
           println "ACR login Server  : ${acr}"
           println "Repo              : ${repo}"
+          println "Branch            : ${branch}"
           println "build number      : ${buildNO}"
         }
       }
