@@ -98,7 +98,7 @@ pipeline {
            extensions: [],
            submoduleCfg: [],
            userRemoteConfigs: [[
-              credentialsId: ${gitCred},
+              credentialsId: "${gitCred}",
               url: "https://${repo}"
            ]]
           ]
