@@ -112,6 +112,9 @@ pipeline {
           sh "git branch"
           sh "chmod +x './BashScripts/deployFile1.sh'"
           sh "./BashScripts/deployFile1.sh ${imageTag} ${acr} ${repo}"
+          sh "git add ./yml-Files/kustomize.yml"
+          sh "git commit -m 'jenkins '"
+          sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
         }
       }
     }
