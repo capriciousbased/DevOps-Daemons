@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginxcomicbook1
+  namespace: felixstrauss
 spec:
   replicas: 1
   selector:
