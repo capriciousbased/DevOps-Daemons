@@ -2,7 +2,8 @@ echo "running bash script deployFile1.sh"
 
 for arg in "$@"
 do
-  echo "bash paramters: $arg"
+  echo "bash paramter"
+  echo "$arg"
 done
 
 git pull "https://$1:$2@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
