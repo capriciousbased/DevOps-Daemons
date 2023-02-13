@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - nginx.yml
 images:
-  - name: ANIS-NGINX
-    newName: devops2022.azurecr.io/nginxanis:dddbd7d7ad32e78f5a458276acbd88bc75e8c560
+  - name: nginxcomic
+    newName: devops2022.azurecr.io/nginxcomic:dddbd7d7ad32e78f5a458276acbd88bc75e8c560
