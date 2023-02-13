@@ -120,31 +120,27 @@ pipeline {
         }
       }
     }
-    // checkout([$class: 'GitSCM', branches: [[name: '*/main']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: '2eb747c4-f19f-4601-ab83-359462e62482',  url: 'https://github.com/Brights-DevOps-2022-Script/argocd.git']]])
-    //            withCredentials([usernamePassword(credentialsId: '2eb747c4-f19f-4601-ab83-359462e62482', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-    //                sh "sed -i 's|image:.*|image: devops2022.azurecr.io/nginxanis:${GIT_COMMIT}|' anis-argocd/nginx.yml"
-    
-    //stage('DEPLOY DEPLOYMENT FILE2') {
-    //  when{ expression {isNewImage}}
-    //  steps {
-    //    checkout(
-    //      [
-    //        $class: 'GitSCM',
-    //        branches: [[name: ${branch}]],
-    //        doGenerateSubmoduleConfigurations: false,
-    //        extensions: [],
-    //        submoduleCfg: [],
-    //        userRemoteConfigs: [[
-    //           credentialsId: ${gitCred},
-    //           url: "https://${repo}"
-    //        ]]
-    //      ]
-    //    )
-    //    withCredentials([usernamePassword(credentialsId: ${gitCred}, passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-    //      sh "chmod +x ./BashScripts/deployFile2.sh"
-    //      sh ('./BashScripts/deployFile2.sh ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}') 
-    //    }
-    //  }
-    //}
+    stage('DEPLOY DEPLOYMENT FILE2') {
+      when{ expression {isNewImage}}
+      steps {
+        checkout(
+          [
+            $class: 'GitSCM',
+            branches: [[name: ${branch}]],
+            doGenerateSubmoduleConfigurations: false,
+            extensions: [],
+            submoduleCfg: [],
+            userRemoteConfigs: [[
+               credentialsId: ${gitCred},
+               url: "https://${repo}"
+            ]]
+          ]
+        )
+        withCredentials([usernamePassword(credentialsId: ${gitCred}, passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+          sh "chmod +x ./BashScripts/deployFile2.sh"
+          sh ('./BashScripts/deployFile2.sh ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}') 
+        }
+      }
+    }
   }
 }
