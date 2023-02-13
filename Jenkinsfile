@@ -105,10 +105,12 @@ pipeline {
         )
         withCredentials([usernamePassword(credentialsId: 'devopsProjectTocken', passwordVariable: 'GIT_PASSWORD',
                                           usernameVariable: 'GIT_USERNAME')]) {
+          sh "https://${GIT_USERNAME}:$2@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
+          ah "git checkout main" 
           sh "git status"
           sh "git branch"
           sh "chmod +x './BashScripts/deployFile1.sh'"
-          sh "./BashScripts/deployFile1.sh ${GIT_AUTHOR} '${GIT_PASSWORD}' ${imageTag} ${acr} ${repo}"
+          sh "./BashScripts/deployFile1.sh ${GIT_USERNAME} '${GIT_PASSWORD}' ${imageTag} ${acr} ${repo}"
         }
       }
     }
