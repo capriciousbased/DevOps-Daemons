@@ -106,7 +106,8 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: 'devopsProjectTocken', passwordVariable: 'GIT_PASSWORD',
                                           usernameVariable: 'GIT_USERNAME')]) {
           sh "chmod +x './BashScripts/deployFile1.sh'"
-          sh ("./BashScripts/deployFile1.sh ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}")
+          sh "temp = GIT_PASSWORD"
+          sh ("./BashScripts/deployFile1.sh ${GIT_USERNAME} ${temp} ${imageTag} ${acr} ${repo}")
         }
       }
     }
