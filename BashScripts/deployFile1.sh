@@ -19,5 +19,5 @@ git checkout main
 
 git add ./kustomize.yaml"
 git commit -m 'kustom [skip ci]'"
-git push https://${GIT_USERNAME}:$5 +'HEAD:main'
+git push "https://${GIT_USERNAME}:$5 +'HEAD:main'"
 
