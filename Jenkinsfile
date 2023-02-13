@@ -111,7 +111,7 @@ pipeline {
           sh "cat ./BashScripts/deployFile1.sh"
           // TO DO END
           sh "chmod +x ./BashScripts/deployFile1.sh"
-          sh ('./BaseScripts/deployFile1.sh ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}')
+          sh ('./BashScripts/deployFile1.sh ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}')
         }
       }
     }
