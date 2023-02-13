@@ -13,7 +13,7 @@ spec:
         app: nginx
     spec:
       containers:
-      - name: nginx
+      - name: nginxcomic
         image: devops2022.azurecr.io/comicbook
         ports:
         - containerPort: 80
