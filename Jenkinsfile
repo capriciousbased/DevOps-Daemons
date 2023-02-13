@@ -107,11 +107,11 @@ pipeline {
                                           usernameVariable: 'GIT_USERNAME')]) {
           // TO DO
           sh "ls"
-          sh "ls ./BashScripts"
-          sh "cat ./BashScripts/deployFile1.sh"
+          sh "ls './Bash Scripts'"
+          sh "cat './BashScripts/deployFile1.sh'"
           // TO DO END
-          sh "chmod +x ./BashScripts/deployFile1.sh"
-          sh ('./BashScripts/deployFile1.sh ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}')
+          sh "chmod +x './BashScripts/deployFile1.sh'"
+          sh ("'./BashScripts/deployFile1.sh' ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}")
         }
       }
     }
