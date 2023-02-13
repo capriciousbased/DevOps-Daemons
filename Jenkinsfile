@@ -106,8 +106,11 @@ pipeline {
         )
         withCredentials([usernamePassword(credentialsId: "${gitCred}", passwordVariable: 'GIT_PASSWORD',
                                           usernameVariable: 'GIT_USERNAME')]) {
-          sh "git pull --rebase https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
-          ah "git checkout main" 
+          sh "git status"
+          sh "git branch"
+          sh "git fetch https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
+          sh "git merge --strategy-option ours origin/main"
+          sh "git checkout main" 
           sh "git status"
           sh "git branch"
           sh "chmod +x './BashScripts/deployFile1.sh'"
