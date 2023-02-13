@@ -94,7 +94,7 @@ pipeline {
         withCredentials([usernamePassword(credentialsId: "${gitCred}", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
           checkout(
           [$class: 'GitSCM',
-           branches:branches: [[name: '*/main']],
+           branches: [[name: '*/main']],
            doGenerateSubmoduleConfigurations: false,
            extensions: [],
            submoduleCfg: [],
