@@ -103,6 +103,7 @@ pipeline {
         )
           sh "chmod +x './BashScripts/deployFile1.sh'"
           sh "./BashScripts/deployFile1.sh ${image} ${tag} ${repo}"
+          sh "sed -i 's|image:.*|image: devops2022.azurecr.io/comicbook:${tag}|' ./yml-Files/allinone.yml"
           sh "git add ./yml-Files/kustomization.yml"
           sh "git commit -m 'jenkins push'"
           sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
