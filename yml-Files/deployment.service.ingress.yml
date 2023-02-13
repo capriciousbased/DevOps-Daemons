@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginxanis
+  name: nginxcomicbook
   labels:
     app: nginx
 spec:
@@ -16,14 +16,14 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: devops2022.azurecr.io/nginxanis
+        image: devops2022.azurecr.io/nginx
         ports:
         - containerPort: 80
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginxanis
+  name: nginxcomicbook
 spec:
   selector:
     app: nginx
@@ -36,7 +36,7 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
- name: nginxanis
+ name: nginxcomicbook
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
@@ -45,10 +45,10 @@ spec:
   - host: devops2022.de
     http:
       paths:
-      - path: "/anis"
+      - path: "/comicbook"
         pathType: Prefix
         backend:
           service:
-            name: nginxanis
+            name: nginxcomicbook
             port:
               number: 80
