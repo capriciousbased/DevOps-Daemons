@@ -114,27 +114,27 @@ pipeline {
         }
       }
     }
-    stage('DEPLOY DEPLOYMENT FILE2') {
-      when{ expression {isNewImage}}
-      steps {
-        checkout(
-          [
-            $class: 'GitSCM',
-            branches: [[name: ${branch}]],
-            doGenerateSubmoduleConfigurations: false,
-            extensions: [],
-            submoduleCfg: [],
-            userRemoteConfigs: [[
-               credentialsId: ${gitCred},
-               url: "https://${repo}"
-            ]]
-          ]
-        )
-        withCredentials([usernamePassword(credentialsId: 'devopsProjectTocken', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-          sh "chmod +x ./BashScripts/deployFile2.sh"
-          sh ('./BashScripts/deployFile2.sh ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}') 
-        }
-      }
-    }
+    //stage('DEPLOY DEPLOYMENT FILE2') {
+    //  when{ expression {isNewImage}}
+    //  steps {
+    //    checkout(
+    //      [
+    //        $class: 'GitSCM',
+    //        branches: [[name: ${branch}]],
+    //        doGenerateSubmoduleConfigurations: false,
+    //        extensions: [],
+    //        submoduleCfg: [],
+    //        userRemoteConfigs: [[
+    //           credentialsId: ${gitCred},
+    //           url: "https://${repo}"
+    //        ]]
+    //      ]
+    //    )
+    //    withCredentials([usernamePassword(credentialsId: 'devopsProjectTocken', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+    //      sh "chmod +x ./BashScripts/deployFile2.sh"
+    //      sh ('./BashScripts/deployFile2.sh ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}') 
+    //    }
+    //  }
+    //}
   }
 }
