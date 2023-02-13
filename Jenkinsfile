@@ -6,8 +6,8 @@ pipeline {
     branch     = '*/main'
     acr        = "devops2022.azurecr.io"
     image      = "comicbook"
-    //gitCred    = '2eb747c4-f19f-4601-ab83-359462e62482'
-    gitCred    = 'devopsProjectTocken'
+    gitCred    = '2eb747c4-f19f-4601-ab83-359462e62482'
+    //gitCred    = 'devopsProjectTocken'
     dockerPath = "./Test"
     // dockerPath = "./App/Docker/ColorQuiz"
     // dockerPath = "./App/Docker/HtmlComicBook"
@@ -104,7 +104,7 @@ pipeline {
            ]]
           ]
         )
-        withCredentials([usernamePassword(credentialsId: 'devopsProjectTocken', passwordVariable: 'GIT_PASSWORD',
+        withCredentials([usernamePassword(credentialsId: ${gitCred}, passwordVariable: 'GIT_PASSWORD',
                                           usernameVariable: 'GIT_USERNAME')]) {
           sh "git fetch https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
           sh "git merge --strategy-option ours origin/main"
@@ -132,7 +132,7 @@ pipeline {
     //        ]]
     //      ]
     //    )
-    //    withCredentials([usernamePassword(credentialsId: 'devopsProjectTocken', passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
+    //    withCredentials([usernamePassword(credentialsId: ${gitCred}, passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
     //      sh "chmod +x ./BashScripts/deployFile2.sh"
     //      sh ('./BashScripts/deployFile2.sh ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}') 
     //    }
