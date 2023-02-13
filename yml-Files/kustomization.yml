@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - deployment.service.ingress.yml
 images:
-  name: nginxcomic
-  newName: comicbook:37707cad2ac09eba0e06d1977462c668fbf6d675
+  - name: nginxcomic
+  - newName: comicbook:1a0e1557cc17956aa71c7834b0ebec432d9679fb
