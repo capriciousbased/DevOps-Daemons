@@ -44,14 +44,17 @@ pipeline {
       }
     }
     stage('CHECK DOCKER IMAGE TAG') {
+      when{ expression {isJenkins}}
       steps {
-        sh "chmod +x ./BashScripts/checkDockerImageTag.sh"
-        def result = sh(script: "./BashScripts/checkDockerImageTag.sh ${GIT_USERNAME} ${GIT_PASSWORD} 'Build' ${buildNO}", returnStdout: true, returnStatus: true)
-        tag = result.stdout
-        isNewImage = result.status
-        imageTag = "${image}:${tag}"
-        println "Script output: ${imageTag}"
-        println "app has changed: ${isNewImage}"
+        script {
+          sh "chmod +x ./BashScripts/checkDockerImageTag.sh"
+          def result = sh(script: "./BashScripts/checkDockerImageTag.sh ${GIT_USERNAME} ${GIT_PASSWORD} 'Build' ${buildNO}", returnStdout: true, returnStatus: true)
+          tag = result.stdout
+          isNewImage = result.status
+          imageTag = "${image}:${tag}"
+          println "Script output: ${imageTag}"
+          println "app has changed: ${isNewImage}"
+        }
       }
     }
     //stage('Reset build number') {
