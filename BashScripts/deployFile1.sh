@@ -6,10 +6,10 @@ do
   echo "$arg"
 done
 
-  echo" apiVersion: kustomize.config.k8s.io/v1beta1"            >  ./yml-Files/kustomize.yml
-  echo" kind: Kustomization"                                    >> ./yml-Files/kustomize.yml
-  echo" resources:"                                             >> ./yml-Files/kustomize.yml 
-  echo"  - deployment.service.ingress.yml."                     >> ./yml-Files/kustomize.yml
-  echo" images:"                                                >> ./yml-Files/kustomize.yml
-  echo "  - name: nginxcomic"                                   >> ./yml-Files/kustomize.yml
-  echo "newName: ${1}:${2}"                                     >> ./yml-Files/kustomize.yml
+  echo" apiVersion: kustomize.config.k8s.io/v1beta1"            >  ./yml-Files/kustomization.yml
+  echo" kind: Kustomization"                                    >> ./yml-Files/kustomization.yml
+  echo" resources:"                                             >> ./yml-Files/kustomization.yml
+  echo"  - deployment.service.ingress.yml."                     >> ./yml-Files/kustomization.yml
+  echo" images:"                                                >> ./yml-Files/kustomization.yml
+  echo "  - name: nginxcomic"                                   >> ./yml-Files/kustomization.yml
+  echo "newName: ${1}:${2}"                                     >> ./yml-Files/kustomization.yml
