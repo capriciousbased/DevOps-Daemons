@@ -1,7 +1,2 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-resources:
-  - deployment.service.ingress.yml
-images:
   - name: nginxcomic
-    newName: devops2022.azurecr.io/nginxcomic:dddbd7d7ad32e78f5a458276acbd88bc75e8c560
+newName: comicbook:b81a98ac3f2d89df40ee7bffd9b76a9a066059a1
