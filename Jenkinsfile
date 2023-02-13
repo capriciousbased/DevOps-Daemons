@@ -79,7 +79,7 @@ pipeline {
     //  }
     //}
     stage('BUILD + PUSH DOCKER IMAGE') {
-      when{ expression {isNewImage}} 
+      when{ expression {isJenkins}}
       steps {
         withDockerRegistry(credentialsId: 'acr_creds', url: "https://${acr}/v2/") {
           sh "docker build -t ${acr}/${imageTag} ${dockerPath}"
@@ -89,7 +89,7 @@ pipeline {
       }
     }
     stage('DEPLOY DEPLOYMENT FILE') {
-      when{ expression {isNewImage}}
+      when{ expression {isJenkins}}
       steps {
         withCredentials([usernamePassword(credentialsId: "${gitCred}", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
           checkout(
