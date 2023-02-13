@@ -2,7 +2,7 @@ echo "running bash script deployFile1.sh"
 
 for arg in "$@"
 do
-  echo "bash paramter"
+  echo "bash parameter"
   echo "$arg"
 done
 
@@ -12,8 +12,8 @@ done
   echo"  - nginx.yml"                                           >> ./yml-Files/kustomize.yml
   echo" images:"                                                >> ./yml-Files/kustomize.yml
   echo "  - name: nginxcomic"                                   >> ./yml-Files/kustomize.yml
-  echo "newName: $3:$4" >> ./yml-Files/kustomize.yml
+  echo "newName: $1:$2" >> ./yml-Files/kustomize.yml
 
 git add ./yml-Files/kustomize.yml
 git commit -m 'jenkins '"
-git push "https://$4:$5 +'HEAD:main'
+git push "https://$3:$4 +'HEAD:main'
