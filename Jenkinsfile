@@ -110,7 +110,7 @@ pipeline {
           sh "git status"
           sh "git branch"
           sh "chmod +x './BashScripts/deployFile1.sh'"
-          sh "./BashScripts/deployFile1.sh ${GIT_USERNAME} '${GIT_PASSWORD}' ${imageTag} ${acr} ${repo}"
+          // sh "./BashScripts/deployFile1.sh ${GIT_USERNAME} '${GIT_PASSWORD}' ${imageTag} ${acr} ${repo}"
         }
       }
     }
