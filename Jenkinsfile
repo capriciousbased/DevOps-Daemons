@@ -59,24 +59,24 @@ pipeline {
           println "app has changed: ${isNewImage}"
       }
     }
-    stage('Reset build number') {
-      when{ expression {isNonBuildRelease}}
-      steps {
-        script {
-          // resets the Jenkin controller build number to 1
-          def resetBuildNumber() {
-              def jobName = env.JOB_NAME
-              def buildNumber = env.BUILD_NUMBER
-              def crumb = sh(script: "curl '$JENKINS_URL/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)'", returnStdout: true).trim()
-              def response = sh(script: "curl -X POST -H '$crumb' -d 'json={\"buildNumber\":\"${buildNumber}\",\"reset\":true}' '$JENKINS_URL/job/$jobName/doResetBuildNumber'", returnStdout: true).trim()
-              if (response == "") { println("Build number reset successfully") }
-              if (response != "") { println("Failed to reset build number: $response") }
-          }
-          env.BUILD_NUMBER = "1"
-          resetBuildNumber()
-        }
-      }
-    }
+    //stage('Reset build number') {
+    //  when{ expression {isNonBuildRelease}}
+    //  steps {
+    //    script {
+    //      // resets the Jenkin controller build number to 1
+    //      def resetBuildNumber() {
+    //          def jobName = env.JOB_NAME
+    //          def buildNumber = env.BUILD_NUMBER
+    //          def crumb = sh(script: "curl '$JENKINS_URL/crumbIssuer/api/xml?xpath=concat(//crumbRequestField,\":\",//crumb)'", returnStdout: true).trim()
+    //          def response = sh(script: "curl -X POST -H '$crumb' -d 'json={\"buildNumber\":\"${buildNumber}\",\"reset\":true}' '$JENKINS_URL/job/$jobName/doResetBuildNumber'", returnStdout: true).trim()
+    //          if (response == "") { println("Build number reset successfully") }
+    //          if (response != "") { println("Failed to reset build number: $response") }
+    //      }
+    //      env.BUILD_NUMBER = "1"
+    //      resetBuildNumber()
+    //    }
+    //  }
+    //}
     stage('BUILD + PUSH DOCKER IMAGE') {
       when{ expression {isNewImage}} 
       steps {
