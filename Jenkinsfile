@@ -39,13 +39,14 @@ pipeline {
           println "ACR login Server  : ${acr}"
           println "Repo              : ${repo}"
           println "build number      : ${buildNO}"
+          println "is non Build      : ${isNonBuildRelease}"
         }
       }
     }
     stage('CHECK DOCKER IMAGE TAG') {
       when{ expression {isJenkins}} 
       steps {
-        ah "ls ./BashScripts"
+        sh "ls ./BashScripts"
         sh "chmod +x ./BashScripts/checkDockerImageTag.sh"
         //  def result = sh(script: "./BashScripts/checkDockerImageTag.sh ${GIT_USERNAME} ${GIT_PASSWORD} 'Build' ${buildNO}",
         //                  returnStdout: true, returnStatus: true)
