@@ -111,6 +111,8 @@ pipeline {
           sh "git branch"
           sh "chmod +x './BashScripts/deployFile1.sh'"
           sh "./BashScripts/deployFile1.sh ${image} ${tag} ${repo}"
+          sh "ls ./yml-Files"
+          sh "cat ./yml-Files/kustomize.yml"
           sh "git add ./yml-Files/kustomize.yml"
           sh "git commit -m 'jenkins push'"
           sh "git status"
