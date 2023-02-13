@@ -14,5 +14,6 @@ done
   echo "  - name: nginxcomic"                                   >> ./argocd/kustomize.yaml
   echo "newName: $3:$4" >> ./kustomize.yaml
 
-
+git commit -m 'kustom [skip ci]'"
+sh git push "https://$4:$5 +'HEAD:main'
 
