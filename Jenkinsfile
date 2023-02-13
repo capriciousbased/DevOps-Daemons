@@ -7,7 +7,7 @@ pipeline {
     acr        = "devops2022.azurecr.io"
     image      = "felixstrauss"
     gitCred    = '2eb747c4-f19f-4601-ab83-359462e62482'
-    dockerPath = "./App/Docker/Helloworld"
+    dockerPath = "./Test"
     // dockerPath = "./App/Docker/ColorQuiz"
     // dockerPath = "./App/Docker/HtmlComicBook"
     // dockerPath = "./App/Docker/ReactComicBook"
