@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: nginxcomicbook
   #labels:
-    #app: nginx
+  # app: nginx
 spec:
   replicas: 1
   selector:
