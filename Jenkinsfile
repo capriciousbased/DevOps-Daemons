@@ -93,7 +93,7 @@ pipeline {
       steps {
         checkout(
           [$class: 'GitSCM',
-           branches: [[name: ${branch}]],
+           branches: [[name: "${branch}"]],
            doGenerateSubmoduleConfigurations: false,
            extensions: [],
            submoduleCfg: [],
