@@ -88,33 +88,33 @@ pipeline {
         }
       }
     }
-    //stage('DEPLOY DEPLOYMENT FILE') {
-    //  when{ expression {isNewImage}}
-    //  steps {
-    //    checkout(
-    //      [$class: 'GitSCM',
-    //       branches: [[name: "${branch}"]],
-    //       doGenerateSubmoduleConfigurations: false,
-    //       extensions: [],
-    //       submoduleCfg: [],
-    //       userRemoteConfigs: [[
-    //          credentialsId: "${gitCred}",
-    //          url: "https://${repo}"
-    //       ]]
-    //      ]
-    //    )
-    //    withCredentials([usernamePassword(credentialsId: 'devopsProjectTocken', passwordVariable: 'GIT_PASSWORD',
-    //                                      usernameVariable: 'GIT_USERNAME')]) {
-    //      sh "git pull https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
-    //      ah "git checkout main" 
-    //      sh "git status"
-    //      sh "git branch"
-    //      sh "chmod +x './BashScripts/deployFile1.sh'"
-    //      sh "./BashScripts/deployFile1.sh ${GIT_USERNAME} '${GIT_PASSWORD}' ${imageTag} ${acr} ${repo}"
-    //    }
-    //  }
-    //}
-    stage('DEPLOY DEPLOYMENT FILE2') {
+    stage('DEPLOY DEPLOYMENT FILE') {
+      when{ expression {isNewImage}}
+      steps {
+        checkout(
+          [$class: 'GitSCM',
+           branches: [[name: "${branch}"]],
+           doGenerateSubmoduleConfigurations: false,
+           extensions: [],
+           submoduleCfg: [],
+           userRemoteConfigs: [[
+              credentialsId: "${gitCred}",
+              url: "https://${repo}"
+           ]]
+          ]
+        )
+        withCredentials([usernamePassword(credentialsId: 'devopsProjectTocken', passwordVariable: 'GIT_PASSWORD',
+                                          usernameVariable: 'GIT_USERNAME')]) {
+          sh "git pull https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
+          ah "git checkout main" 
+          sh "git status"
+          sh "git branch"
+          sh "chmod +x './BashScripts/deployFile1.sh'"
+          sh "./BashScripts/deployFile1.sh ${GIT_USERNAME} '${GIT_PASSWORD}' ${imageTag} ${acr} ${repo}"
+        }
+      }
+    }
+    //stage('DEPLOY DEPLOYMENT FILE2') {
     //  when{ expression {isNewImage}}
     //  steps {
     //    checkout(
