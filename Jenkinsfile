@@ -108,10 +108,10 @@ pipeline {
           // TO DO
           sh "ls"
           sh "ls './Bash Scripts'"
-          sh "cat './BashScripts/deployFile1.sh'"
+          sh "cat './Bash Scripts/deployFile1.sh'"
           // TO DO END
-          sh "chmod +x './BashScripts/deployFile1.sh'"
-          sh ("'./BashScripts/deployFile1.sh' ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}")
+          sh "chmod +x './Bash Scripts/deployFile1.sh'"
+          sh ("'./Bash Scripts/deployFile1.sh' ${GIT_USERNAME} ${GIT_PASSWORD} ${imageTag} ${acr} ${repo}")
         }
       }
     }
