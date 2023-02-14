@@ -6,7 +6,7 @@ WORKDIR /app
 
 #copy the package and package lock files
 #from local to container work directory /app XXXX
-COPY COPY ./package.json /app/
+COPY package*.json /app/
 
 # install the development dependencies (including the testing
 # framework and any other testing-related packages).
