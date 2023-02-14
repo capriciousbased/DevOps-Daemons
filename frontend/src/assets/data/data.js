@@ -28,6 +28,66 @@ export const nav = [
 export const category = [
   {
     id: 1,
+    category: "Plan and Feedback",
+    title: "Stay Calm And Surf",
+    cover: [ "https://img00.deviantart.net/00d4/i/2009/025/8/7/crime_storyboard_by_nube.jpg",
+             "../images/category/ca1.png"]
+  },
+  {
+    id: 2,
+    category: "Development and Code",
+    title: "Stay Calm And Surf",
+    cover: [ "https://live.staticflickr.com/1041/1162284306_0da7ed6b94_b.jpg",
+             "../images/category/ca2.png"]
+  },
+  {
+    id: 3,
+    category: "Build",
+    title: "Stay Calm And Surf",
+    cover: [ "https://live.staticflickr.com/4320/35978238535_07e2bb6e8d_b.jpg",
+             "../images/category/ca3.png"]
+  },
+  {
+    id: 4,
+    category: "Test",
+    title: "Stay Calm And Surf",
+    cover: [ " https://c.pxhere.com/photos/bf/fe/checklist_daily_report_data_desk_paper_paperwork_pen-1531329.jpg!d",
+             "../images/category/ca4.png"]
+  },
+  {
+    id: 5,
+    category: "Release and Config",
+    title: "Stay Calm And Surf",
+    cover: [ "https://th.bing.com/th/id/OIP.DSZ8rX_hCzVcFOR_M788ZgHaF6?pid=ImgDet&rs=1",
+           "../images/category/ca5.png" ]
+  },
+  {
+    id: 6,
+    category: "Deploy",
+    title: "Stay Calm And Surf",
+    cover: [ "https://th.bing.com/th/id/R.3c76baa082744019c2bb54204517b402?rik=zOmyu9ONW82S%2bg&pid=ImgRaw&r=0",
+             "../images/category/ca6.png"]
+  },
+  {
+    id: 7,
+    category: "Operate",
+    title: "Stay Calm And Surf",
+    cover: [ "https://lh3.googleusercontent.com/-BnOmZDdxEPM/TdKv13mJE_I/AAAAAAAADGc/PrGTWlrZlZc/s400/DSC_0200.JPG",
+             "../images/category/ca7.png"]
+  },
+  {
+    id: 8,
+    category: "Monitor and Observe",
+    title: "Stay Calm And Surf",
+    cover: [ "../images/category/ca1.png",
+             "../images/category/ca8.png"]
+  },
+]
+  
+/*
+export const category = [
+  {
+    id: 1,
     category: "AgilesArbeiten",
     title: "Stay Calm And Surf",
     cover: "../images/category/ca1.png",
@@ -75,6 +135,7 @@ export const category = [
     cover: "../images/category/ca8.png",
   },
 ];
+*/
 export const blog = [
   {
     id: 1,
