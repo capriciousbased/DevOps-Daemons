@@ -7,8 +7,8 @@ pipeline {
     acr        = "devops2022.azurecr.io"
     image      = "comicbook"
     gitCred    = '2eb747c4-f19f-4601-ab83-359462e62482'
-    //dockerPath = "./Test"
-    dockerPath = "./frontend"
+    dockerPath = "./Test"
+    //dockerPath = "./frontend"
     // AUTOMATICALLY  GENERATED VARIABLES
     // These variables are automatically generated and should not be edited manually
     // Bash variables in SCREAMING_SNAKE_CASE
