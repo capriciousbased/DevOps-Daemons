@@ -13,6 +13,9 @@ COPY package*.json /app/
 # RUN npm install --only=dev
 
 
+# add the node_modules folder to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+
 #Run command npm install to install packages
 RUN npm install
 
@@ -30,4 +33,15 @@ FROM nginx:alpine
 
 #we copy the output from first stage that is our react build
 #into nginx html directory where it will serve our index file
-COPY --from=build-stage /app/build/ /usr/share/nginx/html
+COPY --from=build /app/build/ /usr/share/nginx/html
+
+# needed this to make React Router work properly 
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx/nginx.conf /etc/nginx/conf.d
+
+# start the nginx web server
+
+CMD ["nginx", "-g", "daemon off;"]
+
+# Expose port 80 for HTTP Traffic 
+EXPOSE 80
