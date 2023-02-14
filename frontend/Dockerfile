@@ -8,11 +8,19 @@ WORKDIR /app
 #from local to container work directory /app
 COPY package*.json /app/
 
+# install the development dependencies (including the testing
+# framework and any other testing-related packages).
+# RUN npm install --only=dev
+
+
 #Run command npm install to install packages
 RUN npm install
 
 #copy all the folder contents from local to container
 COPY . .
+
+# command runs the unit tests as part of the build process
+# RUN npm run test
 
 #create a react production build
 RUN npm run build
