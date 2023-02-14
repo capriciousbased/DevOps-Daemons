@@ -14,6 +14,7 @@ pipeline {
     GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
     GIT_AUTHOR = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%an"').trim()
     GIT_MSG    = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%s"').trim()
+    CHANGES    = sh(script: 'git diff HEAD^ --name-only ../frontend', returnStdout: true).trim()
     // Groovy variables in camelCase
     buildNo    = "${env.BUILD_NUMBER}"
     tag        = "${GIT_COMMIT}"
@@ -40,6 +41,7 @@ pipeline {
           println "Repo              : ${repo}"
           println "build number      : ${buildNO}"
           println "is non Build      : ${isNonBuildRelease}"
+          println "frontend change   : ${CHANGES}"
         }
       }
     }
@@ -48,7 +50,7 @@ pipeline {
     //  steps {
     //    script {
     //      sh "chmod +x ./BashScripts/checkDockerImageTag.sh"
-    //      def result = sh(script: "./BashScripts/checkDockerImageTag.sh ${GIT_USERNAME} ${GIT_PASSWORD} 'Build' ${buildNO}", returnStdout: true, returnStatus: true)
+    //      def result = sh(script: "./BashScripts/checkDockerImageTag.sh ${GIT_USERNAME} ${GIT_PASSWORD} 'Build' ${buildNO} ${ChANGES}", returnStdout: true, returnStatus: true)
     //      tag = result.stdout
     //      isNewImage = result.status
     //      imageTag = "${image}:${tag}"

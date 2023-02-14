@@ -87,9 +87,8 @@ function create_version_tag () {
     echo ${version}
 }
 
-changes=$(git diff HEAD^ --name-only ../App)
-if [ -n "$changes" ]; then
-    if [ "$4" = "Build" ]; then
+if [ -n "${5}" ]; then
+    if [ "${4}" = "Build" ]; then
         set_version_build "$@"
     else
         increment_version_segment "$@"
