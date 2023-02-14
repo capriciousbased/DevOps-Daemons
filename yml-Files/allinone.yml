@@ -37,11 +37,11 @@ metadata:
   name: nginxcomicbook3
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
-    nginx.ingress.kubernetes.io/enable-underscores: "true"
+    #nginx.ingress.kubernetes.io/enable-underscores: "true"
 spec:
   ingressClassName: nginx
   rules:
-  - host: devops2022.de
+  - host: devopsdaemonsdevops2022.de
     http:
       paths:
       - path: "/comicbook"
