@@ -41,7 +41,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: devopsdaemons.devops2022.de
+  - host: devops2022.de
     http:
       paths:
       - path: "/comicbook"
