@@ -79,7 +79,7 @@ export const category = [
     id: 8,
     category: "Monitor and Observe",
     title: "Stay Calm And Surf",
-    cover: [ "../images/category/ca1.png",
+    cover: [ "https://images.pexels.com/videos/7221187/pexels-photo-7221187.jpeg?auto=compress&cs=tinysrgb&fit=crop&h=627&w=1200",
              "../images/category/ca8.png"]
   },
 ]
