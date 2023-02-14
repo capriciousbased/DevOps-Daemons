@@ -15,8 +15,8 @@ COPY package*.json /app/
 # add the node_modules folder to $PATH XXXX
 ENV PATH /app/node_modules/.bin:$PATH
 
-#Run command npm install to install packages
-RUN npm install
+#Run command npm install to install packages xxx
+#RUN npm install
 
 #copy all the folder contents from local to container XXXX
 COPY . /app
@@ -27,6 +27,7 @@ COPY . /app
 #create a react production build XXX
 RUN yarn --silent
 
+RUN yarn build
 #get the latest alpine image from nginx registry
 FROM nginx:alpine
 
