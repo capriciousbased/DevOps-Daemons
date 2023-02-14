@@ -24,8 +24,8 @@ COPY . /app
 # command runs the unit tests as part of the build process
 # RUN npm run test
 
-#create a react production build
-RUN npm run build
+#create a react production build XXX
+RUN yarn --silent
 
 #get the latest alpine image from nginx registry
 FROM nginx:alpine
