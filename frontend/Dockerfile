@@ -13,14 +13,11 @@ COPY package*.json /app/
 # RUN npm install --only=dev
 
 
-# add the node_modules folder to $PATH
-ENV PATH /app/node_modules/.bin:$PATH
-
 #Run command npm install to install packages
 RUN npm install
 
 #copy all the folder contents from local to container
-COPY . ./app
+COPY . .
 
 # command runs the unit tests as part of the build process
 # RUN npm run test
@@ -35,13 +32,3 @@ FROM nginx:alpine
 #into nginx html directory where it will serve our index file
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
 
-# needed this to make React Router work properly 
-RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx/nginx.conf /etc/nginx/conf.d
-
-# start the nginx web server
-
-CMD ["nginx", "-g", "daemon off;"]
-
-# Expose port 80 for HTTP Traffic 
-EXPOSE 80
