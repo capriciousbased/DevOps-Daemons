@@ -18,7 +18,8 @@ pipeline {
     // CHANGES    = sh(script: 'git diff HEAD^ --name-only ../frontend', returnStdout: true).trim()
     // Groovy variables in camelCase
     buildNo    = "${env.BUILD_NUMBER}"
-    tag        = "${GIT_COMMIT}"
+    // tag        = "${GIT_COMMIT}"
+    tag        = "${env.BUILD_NUMBER}"
     imageTag   = "${image}:${tag}"
     // conditions
     isNewImage          = true
