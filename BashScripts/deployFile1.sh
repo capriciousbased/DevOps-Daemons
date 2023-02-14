@@ -12,4 +12,5 @@ done
   echo "  - allinone.yml"                                       >> ./yml-Files/kustomization.yml
   echo "images:"                                                >> ./yml-Files/kustomization.yml
   echo "  - name: nginxcomic"                                   >> ./yml-Files/kustomization.yml
-  echo "    newName: devops2022.azurecr.io/${1}:${2}"           >> ./yml-Files/kustomization.yml
+  echo "    newName: devops2022.azurecr.io/${1}"                >> ./yml-Files/kustomization.yml
+  echo "    newTag: ${2}"                                       >> ./yml-Files/kustomization.yml
