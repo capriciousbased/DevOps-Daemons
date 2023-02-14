@@ -1,3 +1,7 @@
 FROM nginx:alpine
+
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY assets /usr/share/nginx/html/assets
 EXPOSE 80
-COPY ./assets /usr/share/nginx/html
+
+CMD ["nginx", "-g", "daemon off;", "-c", "/etc/nginx/nginx.conf"]
