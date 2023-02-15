@@ -62,13 +62,17 @@ pipeline {
         script {
           for (int i = 0; i < images.size(); i++) {
             def image = images[i]
-            if (image.needUpdate) {
+            try {
               withDockerRegistry(credentialsId: 'acr_creds', url: "https://${acr}/v2/") {
                 sh "cp ../nginx_common.conf ."
                 sh "docker build -t ${acr}/${image.name}:${tag} ${image.path}"
                 sh "docker push ${acr}/${image.name}:${tag}"
                 sh "docker rmi ${acr}/${image.name}:${tag}"
               }
+            } catch (Exception e) {
+              println "Error building Docker image: ${e.getMessage()}"
+              currentBuild.result = 'FAILURE'
+              error "Failed to build Docker image for ${image.name}"
             }
           }
         }
@@ -94,12 +98,24 @@ pipeline {
             for (int i = 0; i < images.size(); i++) {
               def image = images[i]
               if (image.needUpdate) {
-                sh "./BashScripts/deployFile1.sh --name=${image.name} --newTag=${tag} --newName=${image.name} --repo=${repo}"
+                try {
+                  sh "./BashScripts/deployFile1.sh --name=${image.name} --newTag=${tag} --newName=${image.name} --repo=${repo}"
+                } catch (Exception e) {
+                  println "Error deploying deployment file: ${e.getMessage()}"
+                  currentBuild.result = 'FAILURE'
+                  error "Failed to deploy deployment file for ${image.name}"
+                }
               }
             }
             sh "git add ./yml-Files/kustomization.yml"
             sh "git commit -m 'jenkins push'"
-            sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
+            try {
+              sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
+            } catch (Exception e) {
+              println "Error pushing deployment file: ${e.getMessage()}"
+              currentBuild.result = 'FAILURE'
+              error "Failed to push deployment file"
+            }
           }
         }
       }
