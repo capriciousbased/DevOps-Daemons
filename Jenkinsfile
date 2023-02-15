@@ -73,7 +73,7 @@ pipeline {
     }
     stage('DEPLOY DEPLOYMENT FILE') {
       when { expression { images.any { it.needUpdate } } }
-      steps {
+      script {
         withCredentials([usernamePassword(credentialsId: "${gitCred}", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
           checkout([
             $class: 'GitSCM',
