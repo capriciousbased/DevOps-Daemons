@@ -50,4 +50,5 @@ spec:
             name: testcomic-service
             port:
               number: 80
+
               
