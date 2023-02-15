@@ -43,7 +43,6 @@ pipeline {
         script {
           println "Git Author        : ${GIT_AUTHOR}"
           println "Git Commit        : ${GIT_COMMIT}"
-          println "Git Message       : ${GIT_MSG}"
           println "is jenkins        : ${isJenkins}"
           println "Image tag         : ${imageTag}"
           println "ACR login Server  : ${acr}"
