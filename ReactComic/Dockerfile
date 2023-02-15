@@ -12,11 +12,9 @@ RUN npm run build
 
 FROM nginx:alpine
 
-FROM nginx:alpine
-
-COPY nginx.conf /etc/nginx/nginx.conf
-COPY ./nginx_common.conf /etc/nginx/nginx_common.conf
+#COPY nginx.conf /etc/nginx/nginx.conf
+#COPY ./nginx_common.conf /etc/nginx/nginx_common.conf
 
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
 
-CMD ["nginx", "-g", "daemon off;"]
+#CMD ["nginx", "-g", "daemon off;"]
