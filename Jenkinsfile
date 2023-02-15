@@ -66,9 +66,13 @@ pipeline {
             try {
               withDockerRegistry(credentialsId: 'acr_creds', url: "https://${acr}/v2/") {
                 // sh "cp ../nginx_common.conf ."
-                sh "docker build -t ${acr}/${image.name}:${tag} ${image.path}"
-                sh "docker push ${acr}/comicbook:${image.name}:${tag}"
-                sh "docker rmi ${acr}/comicbook:${image.name}:${tag}"
+                sh "echo ${acr}"
+                sh "echo ${image.name}"
+                sh "echo ${tag}"
+                sh "echo ${image.path}"
+                sh "docker build -t ${acr}${image.name}:${tag} ${image.path}"
+                sh "docker push ${acr}/comicbook:${tag}"
+                sh "docker rmi ${acr}/comicbook:${tag}"
               }
             } catch (Exception e) {
               println "Error building Docker image: ${e.getMessage()}"

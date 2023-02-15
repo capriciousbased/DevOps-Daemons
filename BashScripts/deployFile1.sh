@@ -13,5 +13,5 @@ echo "resources:" >> ./yml-Files/kustomize.yml
 echo "  - nginx.yml" >> ./yml-Files/kustomize.yml
 echo "images:" >> ./yml-Files/kustomize.yml
 echo "  - name: ${1}" >> ./yml-Files/kustomize.yml
-echo "    newName: $2/$1" >> ./yml-Files/kustomize.yml
-echo "    newTag: ${3}" >> ./yml-Files/kustomize.yml
+echo "   - newName: $2/$1" >> ./yml-Files/kustomize.yml
+echo "     newTag: ${3}" >> ./yml-Files/kustomize.yml
