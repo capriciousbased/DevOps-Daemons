@@ -61,6 +61,7 @@ pipeline {
             def image = images[i]
             if (image.needUpdate) {
               withDockerRegistry(credentialsId: 'acr_creds', url: "https://${acr}/v2/") {
+                sh "cp ../nginx_common.conf ."
                 sh "docker build -t ${acr}/${image.name}:${tag} ${image.path}"
                 sh "docker push ${acr}/${image.name}:${tag}"
                 sh "docker rmi ${acr}/${image.name}:${tag}"
