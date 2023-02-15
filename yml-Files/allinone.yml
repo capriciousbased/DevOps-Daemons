@@ -142,10 +142,31 @@ spec:
   - host: devopsdaemons.devops2022.de
     http:
       paths:
-      - path: "/comicbook"
+      - path: "/htmlcomic"
         pathType: Prefix
         backend:
           service:
-            name: comicIngress
+            name: htmlcomic-service
+            port:
+              number: 80
+      - path: "/reactcomic"
+        pathType: Prefix
+        backend:
+          service:
+            name: reactcomic-service
+            port:
+              number: 80
+      - path: "/farbenspiel"
+        pathType: Prefix
+        backend:
+          service:
+            name: farbenspiel-service
+            port:
+              number: 80
+      - path: "/testcomic"
+        pathType: Prefix
+        backend:
+          service:
+            name: testcomic-service
             port:
               number: 80
