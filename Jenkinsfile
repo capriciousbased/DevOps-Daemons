@@ -99,7 +99,7 @@ pipeline {
               def image = images[i]
               if (image.needUpdate) {
                 try {
-                  sh "./BashScripts/deployFile1.sh --name=${image.name} --newTag=${tag} --newName=${image.name} --repo=${repo}"
+                  sh "./BashScripts/deployFile1.sh ${image.name} ${tag}"              
                 } catch (Exception e) {
                   println "Error deploying deployment file: ${e.getMessage()}"
                   currentBuild.result = 'FAILURE'
