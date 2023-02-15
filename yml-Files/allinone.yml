@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: testcomic
-        image: devops2022.azurecr.io/comicbook:testcomic
+        image: devops2022.azurecr.io/comicbook
         ports:
         - containerPort: 80
 ---
