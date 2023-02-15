@@ -3,6 +3,5 @@ kind: Kustomization
 resources:
   - nginx.yml
 images:
-  - name: testcomic
-   - newName: github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git/testcomic
-     newTag: b76462aee1607b41a85a270d795897c3c7cf07a7
+   - newName: comicbook
+     newTag: 7899f8f798c06ff8d489db94bb3ee2f236a090d5
