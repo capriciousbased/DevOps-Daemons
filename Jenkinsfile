@@ -99,15 +99,7 @@ pipeline {
               def image = images[i]
               if (image.needUpdate) {
                 try {
-                  // sh "./BashScripts/deployFile1.sh ${image.name} ${tag}"
-                   sh" echo 'apiVersion: kustomize.config.k8s.io/v1beta1'            >  ./yml-Files/kustomization.yml"
-                   sh" echo 'kind: Kustomization'                                    >> ./yml-Files/kustomization.yml"
-                   sh" echo 'resources:'                                             >> ./yml-Files/kustomization.yml"
-                   sh" echo '  - allinone.yml'                                       >> ./yml-Files/kustomization.yml"
-                   sh" echo 'images:'                                                >> ./yml-Files/kustomization.yml"
-                   sh" echo '  - name: ${image.name}'                                >> ./yml-Files/kustomization.yml"
-                   sh" echo '    newName: devops2022.azurecr.io/${image.name}'       >> ./yml-Files/kustomization.yml"
-                   sh" echo '    newTag: ${tag}'                                     >> ./yml-Files/kustomization.yml"              
+                  sh "./BashScripts/deployFile1.sh ${image.name} ${tag}"              
                 } catch (Exception e) {
                   println "Error deploying deployment file: ${e.getMessage()}"
                   currentBuild.result = 'FAILURE'

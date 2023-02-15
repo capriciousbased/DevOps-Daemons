@@ -1,9 +1,16 @@
-  echo "apiVersion: kustomize.config.k8s.io/v1beta1"            >  ./yml-Files/kustomization.yml
-  echo "kind: Kustomization"                                    >> ./yml-Files/kustomization.yml
-  echo "resources:"                                             >> ./yml-Files/kustomization.yml
-  echo "  - allinone.yml"                                       >> ./yml-Files/kustomization.yml
-  echo "images:"                                                >> ./yml-Files/kustomization.yml
-  echo "  - name: nginxcomic"                                   >> ./yml-Files/kustomization.yml
-  echo "    newName: devops2022.azurecr.io/${1}"                >> ./yml-Files/kustomization.yml
-  echo "    newTag: ${2}"                                       >> ./yml-Files/kustomization.yml
+echo "running bash script deployFile1.sh"
 
+for arg in "$@"
+do
+  echo "bash parameter"
+  echo "$arg"
+done
+
+  echo "apiVersion: kustomize.config.k8s.io/v1beta1"             >  ./yml-Files/kustomize.yml
+  echo " kind: Kustomization"                                    >> ./yml-Files/kustomize.yml
+  echo " resources:"                                             >> ./yml-Files/kustomize.yml 
+  echo "  - nginx.yml"                                           >> ./yml-Files/kustomize.yml
+  echo " images:"                                                >> ./yml-Files/kustomize.yml
+  echo "  - name: ${1}"                                          >> ./yml-Files/kustomize.yml
+  echo "     newName: $1:"                                       >> ./yml-Files/kustomize.yml
+  echo "     newTag:  ${2}:"                                     >> ./yml-Files/kustomize.yml
