@@ -13,8 +13,8 @@ spec:
         app: testcomic
     spec:
       containers:
-      - name: testcomic
-        #image: devops2022.azurecr.io/comicbook
+      - name: nginxcomic
+        image: devops2022.azurecr.io/comicbook
         ports:
         - containerPort: 80
 ---
