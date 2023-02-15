@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - allinone.yml
 images:
-  - name: nginxcomic
+  - name: testcomic
     newName: devops2022.azurecr.io/testcomic
-    newTag: 8f80fd19b5feb0b82a1b427a18b8c0f632535c52
+    newTag: cab0edfbaee04608ff5c92888512001ff5893ea5
