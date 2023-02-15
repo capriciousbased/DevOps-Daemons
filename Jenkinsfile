@@ -114,7 +114,7 @@ pipeline {
                 }
               }
             }
-            sh ("sed -i 's|image:.*|image: devops2022.azurecr.io/${imageTag} |' ./yml-Files/allinone.yml")
+            sh "sed -i 's|image:.*|image: devops2022.azurecr.io/${imageTag} |' ./yml-Files/allinone.yml"
             sh "git add ./yml-Files/kustomization.yml"
             sh "git add ./yml-Files/allinone.yml"
             sh "git add ."
