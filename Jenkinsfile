@@ -44,7 +44,6 @@ pipeline {
           println "Git Author        : ${GIT_AUTHOR}"
           println "Git Commit        : ${GIT_COMMIT}"
           println "is jenkins        : ${isJenkins}"
-          println "Image tag         : ${imageTag}"
           println "ACR login Server  : ${acr}"
           println "Repo              : ${repo}"
           println "build number      : ${buildNO}"
