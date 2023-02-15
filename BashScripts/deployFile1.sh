@@ -1,16 +1,9 @@
-echo "running bash script deployFile1.sh"
 
-# loop through each argument and echo it
-for arg in "$@"
-do
-  echo "bash parameter: $arg"
-done
-
-# create the kustomization file
-echo "apiVersion: kustomize.config.k8s.io/v1beta1" > ./yml-Files/kustomize.yml
-echo "kind: Kustomization" >> ./yml-Files/kustomize.yml
-echo "resources:" >> ./yml-Files/kustomize.yml
-echo "  - nginx.yml" >> ./yml-Files/kustomize.yml
-echo "images:" >> ./yml-Files/kustomize.yml
-echo "   - newName: comicbook" >> ./yml-Files/kustomize.yml
-echo "     newTag: ${1}" >> ./yml-Files/kustomize.yml
+echo "apiVersion: kustomize.config.k8s.io/v1beta1"    >  ./yml-Files/kustomize.yml
+echo "kind: Kustomization"                            >> ./yml-Files/kustomize.yml
+echo "resources:"                                     >> ./yml-Files/kustomize.yml
+echo "  - allinone.yml"                               >> ./yml-Files/kustomize.yml
+echo "images:"                                        >> ./yml-Files/kustomize.yml
+echo "   - name: nginxcomic"                          >> ./yml-Files/kustomize.yml
+echo "     newName: devops2022.azurecr.io/${1}"       >> ./yml-Files/kustomize.yml
+echo "     newTag: ${2}"                              >> ./yml-Files/kustomize.yml

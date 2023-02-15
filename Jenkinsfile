@@ -19,6 +19,8 @@ pipeline {
     GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
     GIT_AUTHOR = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%an"').trim()
     tag        = "${GIT_COMMIT}"
+    image1     = "comicbook"
+    imageTag   = "${image1}:${tag}"
     // conditions
     isJenkins  = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
   }
@@ -70,9 +72,9 @@ pipeline {
                 sh "echo image name ${image.name}"
                 sh "echo tag${tag}"
                 sh "echo path ${image.path}"
-                sh "docker build -t ${acr}/comicbook:${tag} ${image.path}"
-                sh "docker push ${acr}/comicbook:${tag}"
-                sh "docker rmi ${acr}/comicbook:${tag}"
+                sh "docker build -t ${acr}/${imageTag} ${image.path}"
+                sh "docker push ${acr}/${imageTag}"
+                sh "docker rmi ${acr}/${imageTag}"
               }
             } catch (Exception e) {
               println "Error building Docker image: ${e.getMessage()}"
@@ -104,7 +106,7 @@ pipeline {
               def image = images[i]
               if (image.needUpdate) {
                 try {
-                  sh "./BashScripts/deployFile1.sh ${tag}"              
+                  sh "./BashScripts/deployFile1.sh ${image1} ${tag}"              
                 } catch (Exception e) {
                   println "Error deploying deployment file: ${e.getMessage()}"
                   currentBuild.result = 'FAILURE'
