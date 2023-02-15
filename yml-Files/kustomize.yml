@@ -5,4 +5,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
  images:
   - name: testcomic
      newName: testcomic:
-     newTag:  7c752bc245084ca912881e9bce5e5e00cbfadf60:
+     newTag:  17b1602f04d7c08abde6d175a46a6c9b8ad6961c:
