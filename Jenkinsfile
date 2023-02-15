@@ -1,3 +1,10 @@
+def images = [  
+  ["name": "farbenspiel", "path": "./Farbenspiel",  "needUpdate": false ],
+  ["name": "htmlcomic",   "path": "./HtmlComic",    "needUpdate": false ],
+  ["name": "reactcomic",  "path": "./ReactComic",   "needUpdate": false ],  
+  ["name": "testcomic",   "path": "./TestComic",    "needUpdate": false ]
+]
+
 pipeline {
   environment {
     // HARDCODED VARIABLES
@@ -5,22 +12,32 @@ pipeline {
     repo       = 'github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git'
     branch     = 'main'
     acr        = "devops2022.azurecr.io"
-    image      = "comicbook"
     gitCred    = '2eb747c4-f19f-4601-ab83-359462e62482'
-    dockerPath = "./TestComic"
     // AUTOMATICALLY  GENERATED VARIABLES
     // These variables are automatically generated and should not be edited manually
     // Bash variables in SCREAMING_SNAKE_CASE
     GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
     GIT_AUTHOR = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%an"').trim()
-    GIT_MSG    = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%s"').trim()
     tag        = "${GIT_COMMIT}"
-    imageTag   = "${image}:${tag}"
     // conditions
-    isJenkins           = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
+    isJenkins  = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
   }
   agent any
   stages {
+    stage('Check for Image Changes') {
+      when{ expression {isJenkins}}
+      steps {
+        script {
+          for (image in images) {
+            def path = image["path"]
+            def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
+            if (changes != "") {
+              image["needUpdate"] = true
+            } 
+          }
+        }
+      }
+    }
     stage('print Infos') {
       steps {
         script {
@@ -32,37 +49,50 @@ pipeline {
           println "ACR login Server  : ${acr}"
           println "Repo              : ${repo}"
           println "build number      : ${buildNO}"
+          println "Images:"
+          for (def image : images) {
+              println "  name: ${image['name']}, path: ${image['path']}, need update: ${image['needUpdate']}"
+          }
         }
       }
     }
     stage('BUILD + PUSH DOCKER IMAGE') {
-      when{ expression {isJenkins}}
-      steps {
-        withDockerRegistry(credentialsId: 'acr_creds', url: "https://${acr}/v2/") {
-          sh "docker build -t ${acr}/${imageTag} ${dockerPath}"
-          sh "docker push ${acr}/${imageTag}"
-          sh "docker rmi ${acr}/${imageTag}"
+      when { expression {images.any { image -> image.needUpdate }}}
+      script {
+        for (int i = 0; i < images.size(); i++) {
+          def image = images[i]
+          if (image.needUpdate) {
+            withDockerRegistry(credentialsId: 'acr_creds', url: "https://${acr}/v2/") {
+              sh "docker build -t ${acr}/${image.name}:${tag} ${image.path}"
+              sh "docker push ${acr}/${image.name}:${tag}"
+              sh "docker rmi ${acr}/${image.name}:${tag}"
+            }
+          }
         }
       }
     }
     stage('DEPLOY DEPLOYMENT FILE') {
-      when{ expression {isJenkins}}
+      when { expression { images.any { it.needUpdate } } }
       steps {
         withCredentials([usernamePassword(credentialsId: "${gitCred}", passwordVariable: 'GIT_PASSWORD', usernameVariable: 'GIT_USERNAME')]) {
-          checkout(
-          [$class: 'GitSCM',
-           branches: [[name: '*/main']],
-           doGenerateSubmoduleConfigurations: false,
-           extensions: [],
-           submoduleCfg: [],
-           userRemoteConfigs: [[
+          checkout([
+            $class: 'GitSCM',
+            branches: [[name: '*/main']],
+            doGenerateSubmoduleConfigurations: false,
+            extensions: [],
+            submoduleCfg: [],
+            userRemoteConfigs: [[
               credentialsId: "${gitCred}",
               url: "https://${repo}"
-           ]]
-          ]
-        )
+            ]]
+          ])
           sh "chmod +x './BashScripts/deployFile1.sh'"
-          sh "./BashScripts/deployFile1.sh ${image} ${tag} ${repo}"
+          for (int i = 0; i < images.size(); i++) {
+            def image = images[i]
+            if (image.needUpdate) {
+              ./BashScripts/deployFile1.sh --name=${image.name} --newTag=${tag} --newName=${image.name} --repo=${repo}
+            }
+          }
           sh "git add ./yml-Files/kustomization.yml"
           sh "git commit -m 'jenkins push'"
           sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
