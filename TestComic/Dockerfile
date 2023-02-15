@@ -1,6 +1,6 @@
 FROM nginx:alpine
-COPY nginx.config /etc/nginx/nginx.conf
-COPY nginx_common.config /etc/nginx/nginx_common.conf
+COPY nginx.conf /etc/nginx/nginx.conf
+COPY nginx_common.conf /etc/nginx/nginx_common.conf
 
 COPY ./assets/index.html /usr/share/nginx/html/index.html 
 COPY ./assets /usr/share/nginx/html/assets
