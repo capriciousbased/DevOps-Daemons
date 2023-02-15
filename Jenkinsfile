@@ -24,9 +24,6 @@ pipeline {
     stage('print Infos') {
       steps {
         script {
-          if (GIT_MSG.contains("update") && (GIT_MSG.contains("minor") || GIT_MSG.contains("major") || GIT_MSG.contains("patch"))) {
-            isNonBuildRelease = true;
-          }
           println "Git Author        : ${GIT_AUTHOR}"
           println "Git Commit        : ${GIT_COMMIT}"
           println "Git Message       : ${GIT_MSG}"
@@ -35,7 +32,6 @@ pipeline {
           println "ACR login Server  : ${acr}"
           println "Repo              : ${repo}"
           println "build number      : ${buildNO}"
-          println "is non Build      : ${isNonBuildRelease}"
         }
       }
     }
