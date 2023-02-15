@@ -1,8 +1,9 @@
 def images = [  
  // ["name": "farbenspiel", "path": "./Farbenspiel",  "needUpdate": false ],
-  ["name": "htmlcomic",   "path": "./HtmlComic",    "needUpdate": true ],
+ // ["name": "htmlcomic",   "path": "./HtmlComic",    "needUpdate": false ],
  // ["name": "reactcomic",  "path": "./ReactComic",   "needUpdate": false ],  
- // ["name": "testcomic",   "path": "./TestComic",    "needUpdate": false ]
+ // ["name": "testcomic",   "path": "./TestComic",    "needUpdate": false ],
+    ["name": "frontend",    "path": "./frontend",    "needUpdate": true ]
 ]
 
 pipeline {
@@ -33,16 +34,17 @@ pipeline {
           for (def image : images) {
             def path = image["path"]
             def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
-             def commitMsg = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
-
-            if (changes != "" || commitMsg =~ /force/) {
+            def commitMsg = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
+            if (changes != "" ) {
+              image["needUpdate"] = true
+            }
+            if ( commitMsg =~ /force/) {
               image["needUpdate"] = true
             }
           }
         }
       }
     }
-    
     stage('print Infos') {
       steps {
         script {
