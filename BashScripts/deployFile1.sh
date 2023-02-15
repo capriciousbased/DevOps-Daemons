@@ -6,3 +6,4 @@
   echo "  - name: nginxcomic"                                   >> ./yml-Files/kustomization.yml
   echo "    newName: devops2022.azurecr.io/${2}"                >> ./yml-Files/kustomization.yml
   echo "    newTag: ${3}"                                       >> ./yml-Files/kustomization.yml
+
