@@ -3,16 +3,6 @@ kind: Kustomization
 resources:
   - allinone.yml
 images:
-  - name: Farbenspiel
-    newName: devops2022.azurecr.io/comicbook
-    newTag: c926b3b3f3cb0ff300710a914375db9b6fe328c8
-  - name: HtmlComic
-    newName: devops2022.azurecr.io/comicbook
-    newTag: c926b3b3f3cb0ff300710a914375db9b6fe328c8
-  - name: ReactComic
-    newName: devops2022.azurecr.io/comicbook
-    newTag: c926b3b3f3cb0ff300710a914375db9b6fe328c8
-  - name: TestComic
-    newName: devops2022.azurecr.io/comicbook
-    newTag: c926b3b3f3cb0ff300710a914375db9b6fe328c8
-
+  - name: nginxcomic
+    newName: devops2022.azurecr.io/--name=testcomic
+    newTag: --newTag=241bb11f15dd8070b8fa8590cde765b71945d099
