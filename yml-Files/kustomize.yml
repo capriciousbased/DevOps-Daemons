@@ -4,5 +4,5 @@ resources:
   - nginx.yml
 images:
   - name: testcomic
-    newName: github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git/testcomic
-    newTag: 1937929a8a9e7c0942386366f0b247e203ddf371
+   - newName: github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git/testcomic
+     newTag: b76462aee1607b41a85a270d795897c3c7cf07a7
