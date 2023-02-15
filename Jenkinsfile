@@ -90,7 +90,7 @@ pipeline {
           for (int i = 0; i < images.size(); i++) {
             def image = images[i]
             if (image.needUpdate) {
-              ./BashScripts/deployFile1.sh --name=${image.name} --newTag=${tag} --newName=${image.name} --repo=${repo}
+              sh "./BashScripts/deployFile1.sh --name=${image.name} --newTag=${tag} --newName=${image.name} --repo=${repo}"
             }
           }
           sh "git add ./yml-Files/kustomization.yml"
