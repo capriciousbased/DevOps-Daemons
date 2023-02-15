@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginxcomic
-        image: devops2022.azurecr.io/comicbook:5b7959293c3357321f052a4303a09a5bf2699666 
+        image: devops2022.azurecr.io/comicbook:d158d2b219ea07abfff46528535828203e8f32c5 
         ports:
         - containerPort: 80
 ---
@@ -36,14 +36,21 @@ kind: Ingress
 metadata:
   name: comicingress
   annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-production"
+    kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
 spec:
-  ingressClassName: nginx
+  tls:
+    - hosts: 
+      - devopsdaemons.devops2022.de
+      secretName: fakecertificate-tls
   rules:
   - host: devopsdaemons.devops2022.de
     http:
       paths:
-      - path: "/testcomic"
+      - path: /.*
         pathType: Prefix
         backend:
           service:
