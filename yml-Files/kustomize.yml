@@ -5,4 +5,4 @@ resources:
 images:
   - name: testcomic
     newName: github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git/testcomic
-    newTag: 3012faffbc8ae51378f9ba280fac87f1c2b0dfcc
+    newTag: 1937929a8a9e7c0942386366f0b247e203ddf371
