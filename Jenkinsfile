@@ -28,12 +28,12 @@ pipeline {
       when{ expression {isJenkins}}
       steps {
         script {
-          for (image in images) {
-            def path = image["path"]
-            def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
-            if (changes != "") {
-              image["needUpdate"] = true
-            } 
+          def path = image["path"]
+          def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
+           def commitMsg = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
+
+          if (changes != "" || commitMsg =~ /force/) {
+            image["needUpdate"] = true
           }
         }
       }
