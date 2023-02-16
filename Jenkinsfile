@@ -31,15 +31,13 @@ pipeline {
       steps {
         script {
           for (def image : images) {
-            println 'image["name"]'
-
             def path = image["path"]
             def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
             def commitMsg = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
             if (changes != "" ) {
               image["needUpdate"] = true
             }
-            if ( GIT_COMMIT.equalsIgnoreCase('force')) {
+            if ( env.GIT_COMMIT.equalsIgnoreCase('force')) {
               println "build Docker images with force"
               image["needUpdate"] = true
             } 
