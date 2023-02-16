@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginxcomic
-        image: devops2022.azurecr.io/frontend:v-345 
+        image: devops2022.azurecr.io/frontend:v-346 
         ports:
         - containerPort: 80
 ---
@@ -64,7 +64,7 @@ metadata:
 spec:
   containers:
   - name: count
-    image: busybox:1.28
+    image: devops2022.azurecr.io/frontend:v-346 
     args: [/bin/sh, -c,
             'i=0; while true; do echo "$i: $(date)"; i=$((i+1)); sleep 1; done']
 
