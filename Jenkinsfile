@@ -24,12 +24,15 @@ pipeline {
     isJenkins  = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
   }
   agent any
+
   stages {
     stage('Check for Image Changes') {
       when{ expression {isJenkins}}
       steps {
         script {
           for (def image : images) {
+            println ${image["name"]}
+
             def path = image["path"]
             def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
             def commitMsg = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
@@ -49,8 +52,7 @@ pipeline {
       when { expression {images.any { image -> image.needUpdate }}}
       steps{
         script {
-          for (int i = 0; i < images.size(); i++) {
-            def image = images[i]
+          for (def image : images) {
             try {
               def imageTag   = "${image.name}:${tag}"
               withDockerRegistry(credentialsId: 'acr_creds', url: "https://${acr}/v2/") {
@@ -84,8 +86,7 @@ pipeline {
               ]]
             ])
             sh "chmod +x './BashScripts/deployFile1.sh'"
-            for (int i = 0; i < images.size(); i++) {
-              def image = images[i]
+            for (def image : images) {
               if (image.needUpdate) {
                 def imageTag   = "${image.name}:${tag}"
                 try {
