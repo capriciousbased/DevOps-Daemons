@@ -1,3 +1,4 @@
+// WRITE 'force' IN COMMIT TO FORCE A BUILD FOR EVERY IMAGE
 def images = [  
  // ["name": "farbenspiel", "path": "./Farbenspiel",  "needUpdate": false ],
  // ["name": "htmlcomic",   "path": "./HtmlComic",    "needUpdate": false ],
