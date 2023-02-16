@@ -6,7 +6,7 @@ RUN mkdir /usr/share/nginx/html/assets
 RUN chown -R nginx:nginx /usr/share/nginx/html/assets
 RUN chmod -R 755 /usr/share/nginx/html/assets
 
-COPY ./assets /usr/share/nginx/html/assets
+COPY ./assets /usr/share/nginx/html/assets/
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
 RUN ls -R /usr/share/nginx/html
