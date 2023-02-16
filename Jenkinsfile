@@ -1,8 +1,9 @@
 def images = [  
  // ["name": "farbenspiel", "path": "./Farbenspiel",  "needUpdate": false ],
-  ["name": "htmlcomic",   "path": "./HtmlComic",    "needUpdate": true ],
+ // ["name": "htmlcomic",   "path": "./HtmlComic",    "needUpdate": false ],
  // ["name": "reactcomic",  "path": "./ReactComic",   "needUpdate": false ],  
- // ["name": "testcomic",   "path": "./TestComic",    "needUpdate": false ]
+ // ["name": "testcomic",   "path": "./TestComic",    "needUpdate": false ],
+    ["name": "frontend",    "path": "./frontend",    "needUpdate": true ]
 ]
 
 pipeline {
@@ -19,6 +20,7 @@ pipeline {
     GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
     GIT_AUTHOR = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%an"').trim()
     tag        = "${GIT_COMMIT}"
+    //tag        =  BUILD_NUMBER.toString()
     image1     = "comicbook"
     imageTag   = "${image1}:${tag}"
     // conditions
@@ -33,16 +35,17 @@ pipeline {
           for (def image : images) {
             def path = image["path"]
             def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
-             def commitMsg = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
-
-            if (changes != "" || commitMsg =~ /force/) {
+            def commitMsg = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
+            if (changes != "" ) {
+              image["needUpdate"] = true
+            }
+            if ( commitMsg =~ /force/) {
               image["needUpdate"] = true
             }
           }
         }
       }
     }
-    
     stage('print Infos') {
       steps {
         script {
@@ -114,10 +117,11 @@ pipeline {
                 }
               }
             }
+
             sh "sed -i 's|image:.*|image: devops2022.azurecr.io/${imageTag} |' ./yml-Files/allinone.yml"
             sh "git add ./yml-Files/kustomization.yml"
             sh "git add ./yml-Files/allinone.yml"
-            sh "git add ."
+            // sh "git add ."
             sh "git commit -m 'jenkins push'"
             try {
               sh "git push https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/Brights-DevOps-2022-Script/DevOps-Daemons.git HEAD:main"
