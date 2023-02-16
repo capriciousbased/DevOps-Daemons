@@ -37,7 +37,10 @@ pipeline {
               image["needUpdate"] = true
             }
             if ( GIT_COMMIT =~ /force/) {
+              println "build Docker images with force"
               image["needUpdate"] = true
+            } else {
+              println "no force"
             }
           }
         }
