@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginxcomic
-        image: devops2022.azurecr.io/frontend:v-351 
+        image: devops2022.azurecr.io/frontend:v-352 
         ports:
         - containerPort: 80
 ---
@@ -90,7 +90,7 @@ metadata:
 spec:
   containers:
   - name: count
-    image: busybox:1.28
+    image: devops2022.azurecr.io/frontend:v-352 
     args:
     - /bin/sh
     - -c
@@ -107,7 +107,7 @@ spec:
     - name: varlog
       mountPath: /var/log
   - name: count-agent
-    image: registry.k8s.io/fluentd-gcp:1.30
+    image: devops2022.azurecr.io/frontend:v-352 
     env:
     - name: FLUENTD_ARGS
       value: -c /etc/fluentd-config/fluentd.conf
