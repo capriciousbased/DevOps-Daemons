@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginxcomic
-        image: devops2022.azurecr.io/frontend:v-360 
+        image: devops2022.azurecr.io/frontend:v-361 
         ports:
         - containerPort: 80
 ---
