@@ -60,7 +60,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: counter
+  name: counter2
 spec:
   containers:
   - name: count
