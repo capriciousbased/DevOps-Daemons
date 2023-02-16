@@ -22,6 +22,7 @@ pipeline {
     tag1       = "v-"
     tag        = tag1.concat(BUILD_NUMBER.toString())
     isJenkins  = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
+    isForce    = env.GIT_COMMIT.equalsIgnoreCase('force')
   }
   agent any
 
@@ -34,13 +35,12 @@ pipeline {
             def path = image["path"]
             def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
             def commitMsg = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
-            if (changes != "" ) {
+            if ( changes != "" ) {
               image["needUpdate"] = true
             }
-            if ( env.GIT_COMMIT.equalsIgnoreCase('force')) {
-              println "build Docker images with force"
+            if( isForce ) {
               image["needUpdate"] = true
-            } 
+            }
           }
         }
       }
