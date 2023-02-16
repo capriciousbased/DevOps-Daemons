@@ -44,6 +44,7 @@ pipeline {
         }
       }
     }
+    
     stage('BUILD + PUSH DOCKER IMAGE') {
       when { expression {images.any { image -> image.needUpdate }}}
       steps{
