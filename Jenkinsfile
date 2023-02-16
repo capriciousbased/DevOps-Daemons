@@ -34,7 +34,7 @@ pipeline {
             def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
             def commitMsg = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
             if ( changes != "" ) {
-              image["needUpdate"] = true
+              image["needUpdate"] = isForce
             }
             println isForce
             if( isForce ) {
