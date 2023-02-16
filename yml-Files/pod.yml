@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: counter4
+  name: counter5
 spec:
   containers:
   - name: count
@@ -25,7 +25,18 @@ spec:
     image: registry.k8s.io/fluentd-gcp:1.30
     env:
     - name: FLUENTD_ARGS
-      value: -c /etc/fluentd-config/fluentd.
+      value: -c /etc/fluentd-config/fluentd.conf
+    volumeMounts:
+    - name: varlog
+      mountPath: /var/log
+    - name: config-volume
+      mountPath: /etc/fluentd-config
+  volumes:
+  - name: varlog
+    emptyDir: {}
+  - name: config-volume
+    configMap:
+      name: fluentd-config
 ---
 apiVersion: v1
 kind: ConfigMap
