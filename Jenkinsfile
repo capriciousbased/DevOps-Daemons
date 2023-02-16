@@ -25,7 +25,7 @@ pipeline {
     tag1         = "v-"
     tag          = tag1.concat(BUILD_NUMBER.toString())
     image1     = "comicbook"
-    imageTag   = "${image1}:${tag}"
+    // imageTag   = "${image1}:${tag}"
     // conditions
     isJenkins  = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
 
@@ -73,6 +73,7 @@ pipeline {
           for (int i = 0; i < images.size(); i++) {
             def image = images[i]
             try {
+              def imageTag   = "${image.name}:${tag}"
               withDockerRegistry(credentialsId: 'acr_creds', url: "https://${acr}/v2/") {
                 sh "docker build -t ${acr}/${imageTag} ${image.path}"
                 sh "docker push ${acr}/${imageTag}"
@@ -107,6 +108,7 @@ pipeline {
             for (int i = 0; i < images.size(); i++) {
               def image = images[i]
               if (image.needUpdate) {
+                def imageTag   = "${image.name}:${tag}"
                 try {
                   sh "sed -i 's|image:.*|image: devops2022.azurecr.io/${imageTag} |' ./yml-Files/allinone.yml"             
                 } catch (Exception e) {
