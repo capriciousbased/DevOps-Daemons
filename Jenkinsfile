@@ -30,6 +30,8 @@ pipeline {
       when{ expression {isJenkins}}
       steps {
         script {
+          println " is Jenkins : ${isJenkins}"
+          println " is Force : ${isForce}"
           for (def image : images) {
             def path = image["path"]
             def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
@@ -38,7 +40,6 @@ pipeline {
             if ( changes != "" ) {
               image["needUpdate"] = true
             }
-            println isForce
           }
         }
       }
