@@ -596,10 +596,10 @@
     }
 
     /*-----------------------------------*\
-#CHAPTERS
+#KapitelS
 \*-----------------------------------*/
 
-    .chapter-card {
+    .Kapitel-card {
       height: 100%;
       background-color: var(--white);
       padding: 25px;
@@ -611,11 +611,11 @@
       overflow: scroll;
     }
 
-    .chapter-card:is(:hover, :focus-within) {
+    .Kapitel-card:is(:hover, :focus-within) {
       transform: translateY(-10px);
     }
 
-    .chapter-card .card-title {
+    .Kapitel-card .card-title {
       margin-block-end: 15px;
     }
 
@@ -721,10 +721,10 @@
       background-color: var(--seashell);
     }
 
-    .author .container {
-      display: grid;
-      gap: 40px;
-    }
+    /*     .author .container {
+        display: grid;
+        gap: 40px;
+      } */
 
     .author :is(.section-subtitle, .section-title) {
       text-align: left;
@@ -1059,10 +1059,10 @@
       }
 
       /**
- * CHAPTERS, PRICING
+ * KapitelS, PRICING
  */
 
-      :is(.chapters, .pricing) .grid-list li:last-child {
+      :is(.Kapitels, .pricing) .grid-list li:last-child {
         grid-column: 1 / 3;
         max-width: calc(50% - 12.5px);
         width: 100%;
@@ -1175,10 +1175,10 @@
       }
 
       /**
- * CHAPTER, PRICING
+ * Kapitel, PRICING
  */
 
-      :is(.chapters, .pricing) .grid-list li:last-child {
+      :is(.Kapitels, .pricing) .grid-list li:last-child {
         all: unset;
       }
 
@@ -1210,10 +1210,10 @@
  * AUTHOR
  */
 
-      .author .container {
-        grid-template-columns: 0.6fr 1fr;
-        gap: 0;
-      }
+      /*         .author .container {
+          grid-template-columns: 0.6fr 1fr;
+          gap: 0;
+        } */
 
       .author-content {
         margin-block-start: 40px;
@@ -1346,15 +1346,15 @@
           </li>
 
           <li class="navbar-item">
-            <a href="#links" class="navbar-link" data-nav-link>Links</a>
+            <a href="http://20.113.26.169:8080/" target="_blank" class="navbar-link" data-nav-link>Links</a>
           </li>
 
           <li class="navbar-item">
-            <a href="#chapters" class="navbar-link" data-nav-link>Chapters</a>
+            <a href="#Kapitels"  class="navbar-link" data-nav-link>Kapitels</a>
           </li>
 
           <li class="navbar-item">
-            <a href="#aboutUs" class="navbar-link" data-nav-link>About us</a>
+            <a href="https://20.76.251.70/" target="_blank" class="navbar-link" data-nav-link>argo</a>
           </li>
 
           <li class="navbar-item">
@@ -1366,7 +1366,7 @@
           </li> -->
 
           <li class="navbar-item">
-            <a href="#contact" class="navbar-link" data-nav-link>Contact</a>
+            <a href="#contact" class="navbar-link" data-nav-link>Kontakt</a>
           </li>
         </ul>
       </nav>
@@ -1401,8 +1401,9 @@
           </div>
 
           <div class="hero-banner has-before">
-            <img src="./assets/images/hero-banner.png" width="431" height="596"
-              alt="things i never said, a novel by claudia wilson" class="w-100" />
+            <img
+              src="https://w7.pngwing.com/pngs/661/447/png-transparent-bachelorette-party-devops-logo-fictional-character-art-thumbnail.png"
+              width="431" height="596" alt="things i never said, a novel by claudia wilson" class="w-100" />
 
             <button class="play-btn" aria-label="play video">
               <ion-icon name="play-outline" aria-hidden="true"></ion-icon>
@@ -1417,35 +1418,45 @@
 
       <section class="section benefits" id="benefits" aria-label="benefits">
         <div class="container">
+          <!--             <img
+                      src="https://theisozone.com/wp-content/uploads/2020/08/DevOps-1024x608.jpg"
+                      width="100%"
+                      height="100px"
+                      loading="lazy"
+                      alt="Docker"
+                    /> -->
           <div class="grid-list">
             <li class="benefits-content">
               <h2 class="h2 section-title">
-                What you'll achieve by this book
+                Was Sie mit diesem Buch erreichen
               </h2>
 
               <p class="section-text">
-                Lorem ipsum dolor sit amet, consectetuer laoreet dolore magna.
+                Durch die Lektüre dieses Buches lernen Sie die Grundlagen der Devops kennen.
               </p>
             </li>
 
             <li>
               <div class="benefits-card has-before has-after">
                 <div class="card-icon">
-                  <img src="./assets/images/benefits-1.svg" width="40" height="40" loading="lazy" alt="Experience" />
+                  <img
+                    src="https://w7.pngwing.com/pngs/475/563/png-transparent-docker-software-deployment-industrial-design-docker-logo-microsoft-azure-industrial-design-thumbnail.png"
+                    width="40" height="40" loading="lazy" alt="Docker" />
                 </div>
 
-                <h3 class="h3 card-title">Experience</h3>
+                <h3 class="h3 card-title">Entdecken</h3>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus, ex? Voluptas minus quis aspernatur corporis.
+                  Die Entwicklung von Software ist ein Mannschaftssport. Zur Vorbereitung auf den nächsten Sprint müssen Teams Workshops durchführen, um Ideen zu finden, zu organisieren und zu priorisieren. 
+                  <br />
+                  <br />
                 </p>
 
-                <a href="#" class="btn-link">
+<!--                 <a href="#" class="btn-link">
                   <span class="span">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
+                </a> -->
               </div>
             </li>
 
@@ -1455,18 +1466,17 @@
                   <img src="./assets/images/benefits-2.svg" width="40" height="40" loading="lazy" alt="Motivation" />
                 </div>
 
-                <h3 class="h3 card-title">Motivation</h3>
+                <h3 class="h3 card-title">Planen</h3>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus, ex? Voluptas minus quis aspernatur corporis.
+                  DevOps-Teams sollten agile Praktiken anwenden um die Geschwindigkeit und Qualität zu verbessern. Agile ist ein iterativer Ansatz für das management und die entwicklung. 
                 </p>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
+                </a> -->
               </div>
             </li>
 
@@ -1476,18 +1486,17 @@
                   <img src="./assets/images/benefits-3.svg" width="40" height="40" loading="lazy" alt="Goals" />
                 </div>
 
-                <h3 class="h3 card-title">Goals</h3>
+                <h3 class="h3 card-title">Erstellen</h3>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus, ex? Voluptas minus quis aspernatur corporis.
+                  Git ist ein kostenloses Open-Source-System zur Versionskontrolle. Es bietet zudem umfassende Unterstützung für das Branching, Merging und Umschreiben des Repository-Verlaufs. 
                 </p>
 
-                <a href="#" class="btn-link">
+               <!--  <a href="#" class="btn-link">
                   <span class="span">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
+                </a> -->
               </div>
             </li>
 
@@ -1497,18 +1506,17 @@
                   <img src="./assets/images/benefits-4.svg" width="40" height="40" loading="lazy" alt="Vision" />
                 </div>
 
-                <h3 class="h3 card-title">Vision</h3>
+                <h3 class="h3 card-title">Test</h3>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus, ex? Voluptas minus quis aspernatur corporis.
+                  Continuous Integration (CI) ermöglicht mehreren Entwicklern zu einem einzigen gemeinsam genutzten Repository beizutragen.Beim mergen von Codeänderungen werden automatisierte Tests durchgeführt, um vor der Integration die fehlerfreiheit des neuen Codes zu bestätigen.
                 </p>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
+                </a> -->
               </div>
             </li>
 
@@ -1518,18 +1526,17 @@
                   <img src="./assets/images/benefits-5.svg" width="40" height="40" loading="lazy" alt="Mission" />
                 </div>
 
-                <h3 class="h3 card-title">Mission</h3>
+                <h3 class="h3 card-title">Bereitstellen</h3>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus, ex? Voluptas minus quis aspernatur corporis.
+                  Continuous Deployment (CD) ermöglicht es Teams, regelmäßig und automatisch Funktionen zu veröffentlichen. Teams haben auch die Option des Deployments mit Feature-Flags. Sie können regelmäßig und methodisch neue Codes an Benutzer ausliefern, anstatt dies in einem Rutsch zu tun. 
                 </p>
 
-                <a href="#" class="btn-link">
+               <!--  <a href="#" class="btn-link">
                   <span class="span">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
+                </a> -->
               </div>
             </li>
 
@@ -1539,18 +1546,56 @@
                   <img src="./assets/images/benefits-6.svg" width="40" height="40" loading="lazy" alt="Strategy" />
                 </div>
 
-                <h3 class="h3 card-title">Strategy</h3>
+                <h3 class="h3 card-title">Operate</h3>
 
                 <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Repellendus, ex? Voluptas minus quis aspernatur corporis.
+                  Verwalte die End-to-End-Bereitstellung von IT-Services für Kunden. Dazu zählen die Praktiken für Design, Implementierung, Konfiguration, Deployment und Wartung der gesamten IT-Infrastruktur, die die Services eines Unternehmens unterstützt.
                 </p>
 
-                <a href="#" class="btn-link">
+                <!-- <a href="#" class="btn-link">
                   <span class="span">Read more</span>
 
                   <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
-                </a>
+                </a> -->
+              </div>
+            </li>
+            
+            <li>
+              <div class="benefits-card has-before has-after">
+                <div class="card-icon">
+                  <img src="./assets/images/benefits-6.svg" width="40" height="40" loading="lazy" alt="Strategy" />
+                </div>
+
+                <h3 class="h3 card-title">Beobachten</h3>
+
+                <p class="card-text">
+                  Identifiziere und behebe schnell Probleme, die sich auf die Verfügbarkeit, Geschwindigkeit und Funktionalität des Produkts auswirken. Informiere dein Team automatisch über Änderungen, risikoreiche Aktionen oder Ausfälle, um Services weiter am Laufen zu halten.
+                </p>
+
+                <!-- <a href="#" class="btn-link">
+                  <span class="span">Read more</span>
+
+                  <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
+              </div>
+            </li>
+            <li>
+              <div class="benefits-card has-before has-after">
+                <div class="card-icon">
+                  <img src="./assets/images/benefits-6.svg" width="40" height="40" loading="lazy" alt="Strategy" />
+                </div>
+
+                <h3 class="h3 card-title">Fortlaufendes Feedback</h3>
+
+                <p class="card-text">
+                  DevOps-Teams sollten jeden Release bewerten und Berichte erstellen, um zukünftige Releases zu verbessern. Durch kontinuierliches Feedback können Teams ihre Prozesse optimieren und Kundenrückmeldungen einbeziehen, um den nächsten Release zu verbessern.
+                </p>
+
+                <!-- <a href="#" class="btn-link">
+                  <span class="span">Read more</span>
+
+                  <ion-icon name="chevron-forward-outline" aria-hidden="true"></ion-icon>
+                </a> -->
               </div>
             </li>
           </div>
@@ -1558,22 +1603,22 @@
       </section>
 
       <!-- 
-        - #CHAPTERS
+        - #KapitelS
       -->
 
-      <section class="section chapters" id="chapters">
+      <section class="section Kapitels" id="Kapitels">
         <div class="container">
-          <p class="section-subtitle">Chapters</p>
+          <p class="section-subtitle">Kapitels</p>
 
           <h2 class="h2 section-title has-underline">
-            Chapters we've covered
+            Kapitel ihrer Wahl
             <span class="span has-before"></span>
           </h2>
 
-          <ul id="chapter-ul" >
-            <!-- < id="chapter-ul"  class="grid-list"> -->
+          <ul id="Kapitel-ul">
+            <!-- < id="Kapitel-ul"  class="grid-list"> -->
             <li>
-              <div class="chapter-card">
+              <div class="Kapitel-card">
                 <p class="card-subtitle"></p>
 
                 <h3 class="h3 card-title">Vorwort</h3>
@@ -1593,11 +1638,13 @@
                   DevOps beschäftigt eine ganze Reihe Mitarbeiter in verschiedenen Abteilungen, Künstler wie Autoren und
                   Grafiker, Handwerker wie den Hausmeister und die Drucker, Verwaltungsfachangestellte und Büroboten und
                   viele mehr...
-
+                  <br />
+                  <br />
 
                   Die Fans der Comics sind teilweise richtige Besserwisser und daher wird großer Wert daraufgelegt,
                   immer pünktlich zu liefern und die Rechtmäßigkeit der einzelnen Geschichten nicht zu verletzten.
-
+                  <br />
+                  <br />
 
                   Aus diesem Grund beobachten die Mitarbeiter aus der Abteilung Market-Research, die **Monitoren** und
                   **Observer** genau was in der Öffentlichkeit, über die neuesten Ausgaben und Entwicklungen der Bücher
@@ -1610,7 +1657,8 @@
                   Anmerkung darüber, dass die Farben neuerdings blasser aussehen und nachdem die **Monitoren** diese
                   Meinung weitergereicht hatten, wurde (viel) später festgestellt,
                   dass die Farben zwar in Ordnung aber die Qualität des Papieres nachgelassen hatte...
-
+                  <br />
+                  <br />
                   Jeden Morgen lesen die Show-Runner oder auch **Planer** die Berichte der **Monitoren** und die Briefe
                   der Kunden bei einer Tasse extra starken, heißen Kaffee.
                   Außer Gwendoline die trinkt lieber Kakao.
@@ -1629,7 +1677,8 @@
                   der Geschichte rausgeschrieben werden sollen.
                   Der "verrückte Wissenschaftler" aus "mein Hut hat vier Ecken" ist so beliebt, dass die Show-Runner
                   eine eigene Spin-off-Serie rund um diesen schrulligen Typen vorbereiten...
-
+                  <br />
+                  <br />
                   Die Autoren, im Verlag auch gerne die **Coder** genannt, bekommen zum Wochenstart eine eher wage
                   Zielsetzung für die nächsten Ausgaben.
                   So soll "Nancy" Probleme an ihrem Arbeitsplatz haben, die sie irgendwie stresst, die Episode soll
@@ -1644,14 +1693,16 @@
                   Erdebeermarmeladenbrot mit Honig stibitzt und Nancy anfängt an ihrem Verstand zu zweifeln.
                   Das Storyboard der **Coder** ist jetzt schon sehr konkret, in wie vielen Bildern wird das Brot gezeigt
                   und wie breit ist das verschmitzte Lächeln der Chefin...
-
+                  <br />
+                  <br />
                   Die Künstler von **Build** erhalten das relativ, uninspirierende Storyboard von den Kollegen aus
                   **Code**. Soll die nächste Aufgabe auf der 7 Farben Siebdruckmaschine gedruckt werden die mit roter,
                   grüner und blauer Farbe arbeitet oder auf der Neuen mit Cyan, Magenta und Gelb?
                   Wieder keine Angaben zum Cover oder ob es ein Vorwort geben soll....
                   Aber, ist ja nichts neues die **Builder** wissen ja wie sie ihren Job zu machen haben.
                   Es wird ein großartiges Titelbild entworfen, wie Nancys Chefin lustvoll in ein Brot beißt...
-
+                  <br />
+                  <br />
                   Die Editoren von **Test** sind entsetzt. Wie kann **Build** das Geheimnis wer der Pausenbrotdieb ist,
                   schon auf der Titelseite verraten!
                   Die **Coder** haben völlig übersehen, dass die Chefin seit Band 12/18 vor drei Jahren eine Allergie
@@ -1664,7 +1715,8 @@
                   Ok …. diese Woche war eine gute Woche... nur drei, vier Runden und alles scheint auf dem ersten Blick
                   zu passen. Über Kleinigkeiten wie den verschwundenen Kaffeefleck auf dem Sofa in der Drogerie wird
                   diesmal großzügig hinweggesehen.
-
+                  <br />
+                  <br />
                   Die Drucker von **Release und Config** sind verzweifelt.
                   Zugegeben die Cover sehen auch diese Woche wieder einfach fantastisch aus aber wo sollen die Etiketten
                   mit den Adressen der Abonnenten aufgeklebt werden, ohne diese zu verschandeln.
@@ -1681,8 +1733,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 01</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 01</p>
 
                 <h3 class="h3 card-title">OPS</h3>
 
@@ -1981,8 +2033,8 @@
             </li>
 
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 02</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 02</p>
 
                 <h3 class="h3 card-title">Trelloboard</h3>
 
@@ -2028,8 +2080,8 @@
             </li>
 
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 03</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 03</p>
 
                 <h3 class="h3 card-title">Einführung in agiles Arbeiten</h3>
 
@@ -2214,8 +2266,8 @@
             </li>
 
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 04</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 04</p>
 
                 <h3 class="h3 card-title">scrum</h3>
 
@@ -2273,8 +2325,8 @@
             </li>
 
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 05</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 05</p>
 
                 <h3 class="h3 card-title">xp extrme programming</h3>
 
@@ -2436,8 +2488,8 @@
             </li>
 
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 06</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 06</p>
 
                 <h3 class="h3 card-title">GitLab</h3>
 
@@ -2471,8 +2523,8 @@
             </li>
 
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 07</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 07</p>
 
                 <h3 class="h3 card-title">JenPipeline</h3>
 
@@ -2588,8 +2640,8 @@
             </li>
 
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 08</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 08</p>
 
                 <h3 class="h3 card-title">jenkins</h3>
 
@@ -2666,8 +2718,8 @@
             </li>
 
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 09</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 09</p>
 
                 <h3 class="h3 card-title">pipelines</h3>
 
@@ -2768,8 +2820,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 09</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 09</p>
 
                 <h3 class="h3 card-title">pipelines</h3>
 
@@ -2870,8 +2922,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 10</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 10</p>
 
                 <h3 class="h3 card-title">DockerHafen</h3>
 
@@ -2901,8 +2953,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 11</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 11</p>
 
                 <h3 class="h3 card-title">Kubernetes</h3>
 
@@ -2954,8 +3006,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 12</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 12</p>
 
                 <h3 class="h3 card-title">Docker</h3>
 
@@ -3008,8 +3060,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 13</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 13</p>
 
                 <h3 class="h3 card-title">Network Ports</h3>
 
@@ -3021,8 +3073,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 14</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 14</p>
 
                 <h3 class="h3 card-title">Webhooks</h3>
 
@@ -3059,8 +3111,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 15</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 15</p>
 
                 <h3 class="h3 card-title">Network_Adressen</h3>
 
@@ -3121,8 +3173,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 16</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 16</p>
 
                 <h3 class="h3 card-title">Bash</h3>
 
@@ -3165,8 +3217,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 17</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 17</p>
 
                 <h3 class="h3 card-title">CleanCoding</h3>
 
@@ -3189,8 +3241,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 18</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 18</p>
 
                 <h3 class="h3 card-title">Funktionen</h3>
 
@@ -3214,8 +3266,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 19</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 19</p>
 
                 <h3 class="h3 card-title">ObjektorientiertesProgrammieren</h3>
 
@@ -3245,8 +3297,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 20</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 20</p>
 
                 <h3 class="h3 card-title">Die Setzerei des DevOps-Comicbook-Verlags</h3>
 
@@ -3332,8 +3384,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 21</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 21</p>
 
                 <h3 class="h3 card-title">Scope</h3>
 
@@ -3357,8 +3409,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 23</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 23</p>
 
                 <h3 class="h3 card-title">git</h3>
 
@@ -3418,8 +3470,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 24</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 24</p>
 
                 <h3 class="h3 card-title">GitHub</h3>
 
@@ -3456,8 +3508,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 25</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 25</p>
 
                 <h3 class="h3 card-title">MergeKonflikt</h3>
 
@@ -3479,8 +3531,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 25</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 25</p>
 
                 <h3 class="h3 card-title">MergeKonflikt</h3>
 
@@ -3502,8 +3554,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 26</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 26</p>
 
                 <h3 class="h3 card-title">Reddit</h3>
 
@@ -3523,8 +3575,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 27</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 27</p>
 
                 <h3 class="h3 card-title">Stackoverflow</h3>
 
@@ -3547,8 +3599,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 28</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 28</p>
 
                 <h3 class="h3 card-title">Behavior-Driven-Development</h3>
 
@@ -3580,8 +3632,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 29</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 29</p>
 
                 <h3 class="h3 card-title">GPGkeys</h3>
 
@@ -3607,8 +3659,8 @@
               </div>
             </li>
             <li>
-              <div class="chapter-card">
-                <p class="card-subtitle">Chapter 30</p>
+              <div class="Kapitel-card">
+                <p class="card-subtitle">Kapitel 30</p>
 
                 <h3 class="h3 card-title">Glossar</h3>
 
@@ -3646,55 +3698,55 @@
 
       <section class="section preview" aria-label="preview">
         <div class="container">
-          <p class="section-subtitle">Chapter Preview</p>
+          <p class="section-subtitle">KAPITELVORSCHAU</p>
 
           <h2 class="h2 section-title has-underline">
-            Read some chapter
+            Lesen Sie ein Kapitel
             <span class="span has-before"></span>
           </h2>
 
           <ul class="tab-list">
             <li>
               <div class="tab-card active" data-tab-card>
-                <h3 class="h3 tab-text">Chapter 1</h3>
+                <h3 class="h3 tab-text">Kapitel 5</h3>
 
-                <img src="./assets/images/preview-1.png" width="820" height="630" loading="lazy" alt="Chapter 1"
+                <img src="./assets/images/kapital5.png" width="820" height="630" loading="lazy" alt="Kapitel 1"
                   class="w-100" />
               </div>
             </li>
 
             <li>
               <div class="tab-card" data-tab-card>
-                <h3 class="h3 tab-text">Chapter 2</h3>
+                <h3 class="h3 tab-text">Kapitel 21</h3>
 
-                <img src="./assets/images/preview-2.png" width="820" height="630" loading="lazy" alt="Chapter 2"
+                <img src="./assets/images/kapital21.png" width="820" height="630" loading="lazy" alt="Kapitel 2"
                   class="w-100" />
               </div>
             </li>
 
             <li>
               <div class="tab-card" data-tab-card>
-                <h3 class="h3 tab-text">Chapter 3</h3>
+                <h3 class="h3 tab-text">Kapitel 23</h3>
 
-                <img src="./assets/images/preview-3.png" width="820" height="630" loading="lazy" alt="Chapter 3"
+                <img src="./assets/images/kapital23.png" width="820" height="630" loading="lazy" alt="Kapitel 3"
+                  class="w-100" Chapter />
+              </div>
+            </li>
+
+            <li>
+              <div class="tab-card" data-tab-card>
+                <h3 class="h3 tab-text">Kapitel 26</h3>
+
+                <img src="./assets/images/kapital26.png" width="820" height="630" loading="lazy" alt="Kapitel 4"
                   class="w-100" />
               </div>
             </li>
 
             <li>
               <div class="tab-card" data-tab-card>
-                <h3 class="h3 tab-text">Chapter 4</h3>
+                <h3 class="h3 tab-text">Kapital 29</h3>
 
-                <img src="./assets/images/preview-4.png" width="820" height="630" loading="lazy" alt="Chapter 4"
-                  class="w-100" />
-              </div>
-            </li>
-
-            <li>
-              <div class="tab-card" data-tab-card>
-                <h3 class="h3 tab-text">Chapter 5</h3>
-
-                <img src="./assets/images/preview-5.png" width="820" height="630" loading="lazy" alt="Chapter 5"
+                <img src="./assets/images/kapital29.png" width="820" height="630" loading="lazy" alt="Kapitel 5"
                   class="w-100" />
               </div>
             </li>
@@ -3708,23 +3760,23 @@
 
       <section class="section pricing" id="pricing" aria-label="pricing">
         <div class="container">
-          <p class="section-subtitle">Pricing</p>
+          <p class="section-subtitle">Preis</p>
 
           <h2 class="h2 section-title has-underline">
-            Pricing based on their version
+            Die Preise basieren auf ihrer Version
             <span class="span has-before"></span>
           </h2>
 
           <ul class="grid-list">
             <li>
               <div class="pricing-card">
-                <h3 class="h3 card-title">E-Book</h3>
+                <h3 class="h3 card-title">E-Buch</h3>
 
-                <data class="price" value="5">$05</data>
+                <data class="price" value="5">€5</data>
 
                 <ul class="pricing-card-list">
                   <li class="card-item">
-                    <p class="card-text">Complete Book</p>
+                    <p class="card-text">Komplettes Buch</p>
                   </li>
 
                   <li class="card-item">
@@ -3732,27 +3784,27 @@
                   </li>
 
                   <li class="card-item">
-                    <p class="card-text">Hardcover Book</p>
+                    <p class="card-text">Gebundenes Buch</p>
                   </li>
 
                   <li class="card-item">
-                    <p class="card-text">Access to Downloads</p>
+                    <p class="card-text">Zugriff auf Downloads</p>
                   </li>
                 </ul>
 
-                <button class="btn btn-secondary">BUY NOW</button>
+                <button class="btn btn-secondary">KAUFE JETZT</button>
               </div>
             </li>
 
             <li>
               <div class="pricing-card bundle">
-                <h3 class="h3 card-title">Bundle</h3>
+                <h3 class="h3 card-title">Bündeln</h3>
 
-                <data class="price" value="15">$15</data>
+                <data class="price" value="15">€15</data>
 
                 <ul class="pricing-card-list">
                   <li class="card-item">
-                    <p class="card-text">Complete Book</p>
+                    <p class="card-text">Komplettes Buch</p>
                   </li>
 
                   <li class="card-item">
@@ -3760,27 +3812,27 @@
                   </li>
 
                   <li class="card-item">
-                    <p class="card-text">Hardcover Book</p>
+                    <p class="card-text">Gebundenes Buch</p>
                   </li>
 
                   <li class="card-item">
-                    <p class="card-text">Access to Downloads</p>
+                    <p class="card-text">Zugriff auf Downloads</p>
                   </li>
                 </ul>
 
-                <button class="btn btn-primary">BUY NOW</button>
+                <button class="btn btn-primary">KAUFE JETZT</button>
               </div>
             </li>
 
             <li>
               <div class="pricing-card">
-                <h3 class="h3 card-title">Hardcover</h3>
+                <h3 class="h3 card-title">Gebundenes Buch</h3>
 
-                <data class="price" value="10">$10</data>
+                <data class="price" value="10">€10</data>
 
                 <ul class="pricing-card-list">
                   <li class="card-item">
-                    <p class="card-text">Complete Book</p>
+                    <p class="card-text">Komplettes Buch</p>
                   </li>
 
                   <li class="card-item">
@@ -3788,15 +3840,15 @@
                   </li>
 
                   <li class="card-item">
-                    <p class="card-text">Hardcover Book</p>
+                    <p class="card-text">Gebundenes Buch</p>
                   </li>
 
                   <li class="card-item">
-                    <p class="card-text">Access to Downloads</p>
+                    <p class="card-text">Zugriff auf Downloads</p>
                   </li>
                 </ul>
 
-                <button class="btn btn-secondary">BUY NOW</button>
+                <button class="btn btn-secondary">KAUFE JETZT</button>
               </div>
             </li>
           </ul>
@@ -3809,52 +3861,99 @@
 
       <section class="section author" id="author">
         <div class="container">
-          <figure class="author-banner img-holder" style="--width: 700; --height: 720">
-            <img src="./assets/images/logo.png" width="700" height="720" loading="lazy" alt="Felix Strauß"
-              class="img-cover" />
-          </figure>
+          <!--             <figure
+              class="author-banner img-holder"
+              style="--width: 700; --height: 720"
+            >
+              <img
+                src="./assets/images/logo.png"
+                width="700"
+                height="720"
+                loading="lazy"
+                alt="Felix Strauß"
+                class="img-cover"
+              />
+            </figure> -->
 
           <div class="author-content">
-            <p class="section-subtitle">The Author</p>
+            <p class="section-subtitle">DER AUTOR</p>
 
-            <h2 class="h2 section-title">Martin Jenny</h2>
+            <h2 class="h2 section-title">Jörg Miethe</h2>
 
             <p class="author-name">Style: Art, Fiction</p>
 
             <div class="section-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. In
-              ducimus enim fuga vero cumque possimus ipsum, alias numquam sint
-              et, voluptates quisquam. Totam atque, fuga culpa corrupti eos
-              reiciendis excepturi ad sint sequi magnam, iste voluptates
-              eaque. In, omnis cumque rem modi atque, dolorem fuga illum dicta
-              quidem atque dignissimos! Ipsum sequi harum commodi laborum,
-              ducimus tempore debitis nesciunt quasi! Deleniti.
+              Im Studium sind mir besonders zwei Arten von Professoren in Erinnerung geblieben:
+              <br />
+              <br />
+              1. Die "Schlechten", welche einfache Dinge unnötig verkompliziert hatten.<br />
+              <br />
+              2. Die "Guten" konnten auch komplexe und komplizierte Themen einfach erklären.
+              <br />
+              <br />
+              Besonders gelungen war das Beispiel in der Thematik Kostenrechnung.
+              Unser Professor hat die Vorlesungsreihe mit der Ankündigung begonnen, dass alle Studenten als junge
+              Diplom-Kaufleute ganz sicher einen der wichtigsten Abteilung in jeder Firma anvertraut bekommen, die
+              Kaffeeküche....
+              Das ganze Semester durch, wurden alle neuen Themengebiete anhand des "Kaffeeküchenbeispiels",
+              eingeführt....
+              Wartungskosten = Entkalkungstablette, Chargenabhängige Kosten = das Extra-Lot Kaffeemehl 'für den
+              Geschmack' bei jeder Kanne....
+              Auch heute noch, 20 Jahre später, leite ich mir Kostenträger-Arten oder Sammler anhand von Kaffeemehl und
+              Kaffeetassen her.
+              Es gibt immer wieder sehr schöne Bilder in unserem Unterricht, wie z.B. die Pillendose mit den
+              Kalendertagen als Beispiel für ein Array.
+              Der DevOpsComic-Buch Verlag ist mein trauriger Versuch ein durchgängiges Beispiel für den
+              'mir größtenteils immer noch unbekannten' Devops-Zyklus zu finden. Hauptsächlich um mir die Dinge selbst
+              zu erklären und wichtiger noch zu erinnern...
+              Angefangen hat das Beispiel als Theater, danach war es eine Filmproduktion und endete
+              letztendlich als Verlag.
+              <br />
+              <br />
+              Vermutlich, weil ich die "Continious-Delivery" am besten dahinein
+              quetschen konnte....
+
             </div>
           </div>
         </div>
-      </section>
-      <section class="section author" id="author">
         <div class="container">
-          <figure class="author-banner img-holder" style="--width: 700; --height: 720">
-            <img src="./assets/images/logo.png" width="700" height="720" loading="lazy" alt="Jörg Miethe"
-              class="img-cover" />
-          </figure>
+          <!--             <figure
+              class="author-banner img-holder"
+              style="--width: 700; --height: 720"
+            >
+              <img
+                src="./assets/images/logo.png"
+                width="400"
+                height="320"
+                loading="lazy"
+                alt="Jörg Miethe"
+                class="img-cover"
+              />
+            </figure> -->
 
           <div class="author-content">
-            <p class="section-subtitle">The Author</p>
+            <p class="section-subtitle">DER AUTOR</p>
 
-            <h2 class="h2 section-title">Martin Jenny</h2>
+            <h2 class="h2 section-title">Felix Strauß</h2>
 
             <p class="author-name">Style: Art, Fiction</p>
 
             <div class="section-text">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. In
-              ducimus enim fuga vero cumque possimus ipsum, alias numquam sint
-              et, voluptates quisquam. Totam atque, fuga culpa corrupti eos
-              reiciendis excepturi ad sint sequi magnam, iste voluptates
-              eaque. In, omnis cumque rem modi atque, dolorem fuga illum dicta
-              quidem atque dignissimos! Ipsum sequi harum commodi laborum,
-              ducimus tempore debitis nesciunt quasi! Deleniti.
+              <p>Während meines Offizierslehrgangs, war das schwerste Fach: „Recht“, die Durchfallquote war recht hoch
+                und unsere Lehrer zuvor waren meistens, eines älteren Schlags und zu sehr in ihrem Fachwissen vertieft,
+                dass sie es uns Neulingen mehr schlecht als Recht versucht hatten beizubringen.
+                Doch mein Rechtslehrer war ein anderes Kaliber, durch seinen großen Erfahrungsschatz konnte er jedes
+                Gesetz mit einer lustigen, traurigen aber definitiv immer interessanten Geschichte aus seinem Leben
+                erklären.
+                Dies zeigte Wirkung und unser gesamter Hörsaal bestand die Prüfung was mir erneut verdeutlichte, was ich
+                aus meiner vorherigen Schulerfahrung gelernt hatte.
+                Merksätze, bildliche Erklärungen sind etwas Greifbareres als komplexe Diagramme oder niedergeschriebene
+                Paragrafen.
+                Sie erleichtern uns, komplexe Themen einfach zu erklären.
+                Deshalb begeisterte mich Jörg seine Idee und ich wollte unbedingt unser Projekt vorantreiben, damit wir
+                etwas Bleibendes schaffen konnten, für uns zur Festigung unseres Wissens und für andere, um komplexe
+                Thematiken besser nachvollziehen zu können, verpackt in Abenteuer und Humor.
+              </p>
             </div>
           </div>
         </div>
@@ -4102,24 +4201,24 @@
 
       <section class="section contact" id="contact" aria-label="contact">
         <div class="container">
-          <p class="section-subtitle">Contact</p>
+          <p class="section-subtitle">KONTAKT</p>
 
           <h2 class="h2 section-title has-underline">
-            Write us anything
+            Schreiben Sie uns etwas
             <span class="span has-before"></span>
           </h2>
 
           <div class="wrapper">
             <form action="" class="contact-form">
-              <input type="text" name="name" placeholder="Your Name" required class="input-field" />
+              <input type="text" name="name" placeholder="Ihren Namen" required class="input-field" />
 
-              <input type="email" name="email_address" placeholder="Your Email" required class="input-field" />
+              <input type="email" name="email_address" placeholder="Ihre E-Mail-Adresse" required class="input-field" />
 
-              <input type="text" name="subject" placeholder="Subject" required class="input-field" />
+              <input type="text" name="subject" placeholder="Thema" required class="input-field" />
 
-              <textarea name="message" placeholder="Your Message" class="input-field"></textarea>
+              <textarea name="message" placeholder="Ihre Nachricht" class="input-field"></textarea>
 
-              <button type="submit" class="btn btn-primary">Send Now</button>
+              <button type="submit" class="btn btn-primary">jetzt senden</button>
             </form>
 
             <ul class="contact-card">
@@ -4145,29 +4244,29 @@
               </li>
 
               <li>
-                <p class="social-list-title h3">Connect book socials</p>
+                <p class="social-list-title h3">Verbinden Sie Buch-Socials</p>
 
                 <ul class="social-list">
                   <li>
-                    <a href="#" class="social-link">
+                    <a href="https://www.facebook.com/" class="social-link" target="_blank">
                       <ion-icon name="logo-facebook"></ion-icon>
                     </a>
                   </li>
 
                   <li>
-                    <a href="#" class="social-link">
+                    <a href="https://twitter.com/" class="social-link" target="_blank">
                       <ion-icon name="logo-twitter"></ion-icon>
                     </a>
                   </li>
 
                   <li>
-                    <a href="#" class="social-link">
+                    <a href="https://www.linkedin.com/" class="social-link" target="_blank">
                       <ion-icon name="logo-linkedin"></ion-icon>
                     </a>
                   </li>
 
                   <li>
-                    <a href="#" class="social-link">
+                    <a href="https://www.youtube.com/" class="social-link" target="_blank">
                       <ion-icon name="logo-youtube"></ion-icon>
                     </a>
                   </li>
@@ -4205,7 +4304,7 @@
           </li>
 
           <li>
-            <a href="#" class="footer-link">Chapters</a>
+            <a href="#" class="footer-link">Kapitels</a>
           </li>
 
           <li>
@@ -4318,7 +4417,7 @@
       let points = document.getElementById("points");
       let showMoreText = document.getElementById("moreText");
       /*   let buttonText = document.getElementById("textButton"); */
-      /* var classStyle = document.getElementById("chapter-ul"); */
+      /* var classStyle = document.getElementById("Kapitel-ul"); */
 
       if (points.style.display === "none") {
         showMoreText.style.display = "none";
@@ -4330,7 +4429,7 @@
         showMoreText.style.display = "inline";
         points.style.display = "none";
         buttonText.innerHTML = "Show Less";
-        /* classStyle.classList.add( "chapter-ul");; */
+        /* classStyle.classList.add( "Kapitel-ul");; */
       }
     };
     addEventOnelem(buttonText, "click", toggleText);
