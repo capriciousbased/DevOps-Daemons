@@ -21,7 +21,7 @@ pipeline {
     tag1       = "v-"
     tag        = tag1.concat(BUILD_NUMBER.toString())
     isJenkins  = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
-    isForce    = env.GIT_COMMIT.equalsIgnoreCase('force')
+    isForce    = env.GIT_COMMIT.contains('force')
   }
   agent any
   stages {
@@ -33,13 +33,11 @@ pipeline {
             def path = image["path"]
             def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
             def commitMsg = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
+            image["needUpdate"] = isForce
             if ( changes != "" ) {
-              image["needUpdate"] = isForce
-            }
-            println isForce
-            if( isForce ) {
               image["needUpdate"] = true
             }
+            println isForce
           }
         }
       }
