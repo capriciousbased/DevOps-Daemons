@@ -50,8 +50,6 @@ pipeline {
     stage('print Infos') {
       steps {
         script {
-          def printShort(str ) { sh("#!/bin/sh -e\n  + echo ${str}")}
-          printShort("Git Author        : ${GIT_AUTHOR}")
           println "Git Author        : ${GIT_AUTHOR}"
           println "Git Commit        : ${GIT_COMMIT}"
           println "is jenkins        : ${isJenkins}"
