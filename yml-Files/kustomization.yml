@@ -5,4 +5,4 @@ resources:
 images:
    - name: nginxcomic
      newName: devops2022.azurecr.io/comicbook
-     newTag: c131af898e1ca585045e94630647b2467f9c90f1
+     newTag: 0c0e6ce55bf5d456e655c7d9cef0aee3eb9ea07f
