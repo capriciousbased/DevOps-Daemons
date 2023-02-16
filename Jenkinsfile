@@ -31,7 +31,7 @@ pipeline {
       steps {
         script {
           for (def image : images) {
-            println ${image["name"]}
+            println 'image["name"]'
 
             def path = image["path"]
             def changes = sh(script: "git diff HEAD^ --name-only ${path}", returnStdout: true).trim()
