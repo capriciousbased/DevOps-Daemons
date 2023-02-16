@@ -3,7 +3,7 @@ def images = [
  // ["name": "htmlcomic",   "path": "./HtmlComic",    "needUpdate": false ],
  // ["name": "reactcomic",  "path": "./mull/ReactComic",   "needUpdate":  ],  
  // ["name": "testcomic",   "path": "./TestComic",    "needUpdate": false ],
-  ["name": "frontend",    "path": "./frontend",    "needUpdate": true ]
+  ["name": "frontend",    "path": "./frontend",    "needUpdate": false ]
 ]
 
 pipeline {
@@ -47,16 +47,18 @@ pipeline {
     stage('print Infos') {
       steps {
         script {
-          println "Git Author        : ${GIT_AUTHOR}"
-          println "Git Commit        : ${GIT_COMMIT}"
-          println "is jenkins        : ${isJenkins}"
-          println "ACR login Server  : ${acr}"
-          println "Repo              : ${repo}"
-          println "Tag               : ${tag}" 
-          println "Images:"
-          for (def image : images) {
-              println "  name: ${image['name']}, path: ${image['path']}, need update: ${image['needUpdate']}"
-          }
+          if ( commitMsg =~ /info/) {
+            println "Git Author        : ${GIT_AUTHOR}"
+            println "Git Commit        : ${GIT_COMMIT}"
+            println "is jenkins        : ${isJenkins}"
+            println "ACR login Server  : ${acr}"
+            println "Repo              : ${repo}"
+            println "Tag               : ${tag}" 
+            println "Images:"
+            for (def image : images) {
+                println "  name: ${image['name']}, path: ${image['path']}, need update: ${image['needUpdate']}"
+            }
+          } 
         }
       }
     }
