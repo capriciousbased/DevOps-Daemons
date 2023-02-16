@@ -1,9 +1,9 @@
 def images = [  
  // ["name": "farbenspiel", "path": "./Farbenspiel",  "needUpdate": false ],
  // ["name": "htmlcomic",   "path": "./HtmlComic",    "needUpdate": false ],
-    ["name": "reactcomic",  "path": "./mull/ReactComic",   "needUpdate": true ],  
+ // ["name": "reactcomic",  "path": "./mull/ReactComic",   "needUpdate":  ],  
  // ["name": "testcomic",   "path": "./TestComic",    "needUpdate": false ],
- // ["name": "frontend",    "path": "./frontend",    "needUpdate": true ]
+  ["name": "frontend",    "path": "./frontend",    "needUpdate": true ]
 ]
 
 
@@ -26,6 +26,7 @@ pipeline {
     imageTag   = "${image1}:${tag}"
     // conditions
     isJenkins  = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
+
   }
   agent any
   stages {
