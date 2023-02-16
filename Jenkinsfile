@@ -36,7 +36,7 @@ pipeline {
             if (changes != "" ) {
               image["needUpdate"] = true
             }
-            if ( GIT_COMMIT =~ /force/) {
+            if ( GIT_COMMIT.equalsIgnoreCase('force')) {
               println "build Docker images with force"
               image["needUpdate"] = true
             } 
@@ -44,7 +44,7 @@ pipeline {
         }
       }
     }
-    
+
     stage('BUILD + PUSH DOCKER IMAGE') {
       when { expression {images.any { image -> image.needUpdate }}}
       steps{
