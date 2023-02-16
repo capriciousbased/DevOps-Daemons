@@ -19,7 +19,8 @@ pipeline {
     // Bash variables in SCREAMING_SNAKE_CASE
     GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
     GIT_AUTHOR = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%an"').trim()
-    tag        = "${GIT_COMMIT}"
+    // tag        = "${GIT_COMMIT}"
+    tag        = "v-" + BUILD_NUMBER.toString()
     image1     = "comicbook"
     imageTag   = "${image1}:${tag}"
     // conditions
