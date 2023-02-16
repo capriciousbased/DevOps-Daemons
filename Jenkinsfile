@@ -22,8 +22,8 @@ pipeline {
     GIT_AUTHOR = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%an"').trim()
     //tag        = "${GIT_COMMIT}"
     //tag        =  BUILD_NUMBER.toString()
-    tag          = "v-"
-    tag          = tag.concat(BUILD_NUMBER.toString())
+    tag1         = "v-"
+    tag          = tag1.concat(BUILD_NUMBER.toString())
     image1     = "comicbook"
     imageTag   = "${image1}:${tag}"
     // conditions
