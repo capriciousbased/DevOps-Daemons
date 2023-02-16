@@ -22,7 +22,6 @@ pipeline {
     tag1       = "v-"
     tag        = tag1.concat(BUILD_NUMBER.toString())
     isJenkins  = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
-    isInfo     = ( GIT_COMMIT =~ /info/ )
   }
   agent any
   stages {
@@ -45,9 +44,9 @@ pipeline {
       }
     }
     stage('print Infos') {
+      when{ expression { GIT_COMMIT =~ /info/ }}
       steps {
         script {
-          println "show info        : ${isInfo}"
           if ( isInfo ) {
             println "Git Author        : ${GIT_AUTHOR}"
             println "Git Commit        : ${GIT_COMMIT}"
