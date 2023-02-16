@@ -95,7 +95,8 @@ spec:
   volumes:
   - name: varlog
     emptyDir: {}
----apiVersion: v1
+---
+apiVersion: v1
 kind: ConfigMap
 metadata:
   name: fluentd-config
