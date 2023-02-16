@@ -58,45 +58,6 @@ spec:
               number: 80
 ---
 apiVersion: v1
-kind: Pod
-metadata:
-  name: counter3
-spec:
-  containers:
-  - name: count
-    image: devops2022.azurecr.io/frontend:v-351 
-    args:
-    - /bin/sh
-    - -c
-    - >
-      i=0;
-      while true;
-      do
-        echo "$i: $(date)" >> /var/log/1.log;
-        echo "$(date) INFO $i" >> /var/log/2.log;
-        i=$((i+1));
-        sleep 1;
-      done      
-    volumeMounts:
-    - name: varlog
-      mountPath: /var/log
-  - name: count-log-1
-    image: devops2022.azurecr.io/frontend:v-351 
-    args: [/bin/sh, -c, 'tail -n+1 -F /var/log/1.log']
-    volumeMounts:
-    - name: varlog
-      mountPath: /var/log
-  - name: count-log-2
-    image: devops2022.azurecr.io/frontend:v-351 
-    args: [/bin/sh, -c, 'tail -n+1 -F /var/log/2.log']
-    volumeMounts:
-    - name: varlog
-      mountPath: /var/log
-  volumes:
-  - name: varlog
-    emptyDir: {}
----
-apiVersion: v1
 kind: ConfigMap
 metadata:
   name: fluentd-config
@@ -120,4 +81,44 @@ data:
 
     <match **>
       type google_cloud
-    </match>        
+    </match>    
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: counter4
+spec:
+  containers:
+  - name: count
+    image: busybox:1.28
+    args:
+    - /bin/sh
+    - -c
+    - >
+      i=0;
+      while true;
+      do
+        echo "$i: $(date)" >> /var/log/1.log;
+        echo "$(date) INFO $i" >> /var/log/2.log;
+        i=$((i+1));
+        sleep 1;
+      done      
+    volumeMounts:
+    - name: varlog
+      mountPath: /var/log
+  - name: count-agent
+    image: registry.k8s.io/fluentd-gcp:1.30
+    env:
+    - name: FLUENTD_ARGS
+      value: -c /etc/fluentd-config/fluentd.conf
+    volumeMounts:
+    - name: varlog
+      mountPath: /var/log
+    - name: config-volume
+      mountPath: /etc/fluentd-config
+  volumes:
+  - name: varlog
+    emptyDir: {}
+  - name: config-volume
+    configMap:
+      name: fluentd-config
