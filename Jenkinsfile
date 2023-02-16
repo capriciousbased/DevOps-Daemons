@@ -118,6 +118,7 @@ pipeline {
                 }
               }
             }
+            
             //sh "git add ./yml-Files/kustomization.yml"
             sh "git add ./yml-Files/allinone.yml"
             // sh "git add ."
