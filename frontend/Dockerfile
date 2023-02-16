@@ -9,5 +9,9 @@ RUN chmod -R 755 /usr/share/nginx/html/assets
 COPY ./assets /usr/share/nginx/html/assets
 COPY ./nginx.conf /etc/nginx/nginx.conf
 
+RUN ls -R /usr/share/nginx/html
+RUN ls -R /usr/share/nginx/html/assets
+RUN ls -R /usr/share/nginx/html/assets/images
+
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
