@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: nginxcomic
-        image: devops2022.azurecr.io/frontend:v-348 
+        image: devops2022.azurecr.io/frontend:v-349 
         ports:
         - containerPort: 80
 ---
@@ -64,7 +64,7 @@ metadata:
 spec:
   containers:
   - name: count
-    image: busybox:1.28
+    image: devops2022.azurecr.io/frontend:v-349 
     args:
     - /bin/sh
     - -c
@@ -81,13 +81,13 @@ spec:
     - name: varlog
       mountPath: /var/log
   - name: count-log-1
-    image: busybox:1.28
+    image: devops2022.azurecr.io/frontend:v-349 
     args: [/bin/sh, -c, 'tail -n+1 -F /var/log/1.log']
     volumeMounts:
     - name: varlog
       mountPath: /var/log
   - name: count-log-2
-    image: busybox:1.28
+    image: devops2022.azurecr.io/frontend:v-349 
     args: [/bin/sh, -c, 'tail -n+1 -F /var/log/2.log']
     volumeMounts:
     - name: varlog
