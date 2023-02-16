@@ -25,7 +25,8 @@ spec:
     image: registry.k8s.io/fluentd-gcp:1.30
     env:
     - name: FLUENTD_ARGS
-      value: -c /etc/fluentd-config/fluentd.---
+      value: -c /etc/fluentd-config/fluentd.
+---
 apiVersion: v1
 kind: ConfigMap
 metadata:
