@@ -60,11 +60,11 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: counter2
+  name: counter3
 spec:
   containers:
   - name: count
-    image: devops2022.azurecr.io/frontend:v-348 
+    image: busybox:1.28
     args:
     - /bin/sh
     - -c
@@ -77,6 +77,18 @@ spec:
         i=$((i+1));
         sleep 1;
       done      
+    volumeMounts:
+    - name: varlog
+      mountPath: /var/log
+  - name: count-log-1
+    image: busybox:1.28
+    args: [/bin/sh, -c, 'tail -n+1 -F /var/log/1.log']
+    volumeMounts:
+    - name: varlog
+      mountPath: /var/log
+  - name: count-log-2
+    image: busybox:1.28
+    args: [/bin/sh, -c, 'tail -n+1 -F /var/log/2.log']
     volumeMounts:
     - name: varlog
       mountPath: /var/log
