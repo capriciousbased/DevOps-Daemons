@@ -6,7 +6,6 @@ def images = [
   ["name": "frontend",    "path": "./frontend",    "needUpdate": true ]
 ]
 
-
 pipeline {
   environment {
     // HARDCODED VARIABLES
@@ -20,15 +19,10 @@ pipeline {
     // Bash variables in SCREAMING_SNAKE_CASE
     GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
     GIT_AUTHOR = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%an"').trim()
-    //tag        = "${GIT_COMMIT}"
-    //tag        =  BUILD_NUMBER.toString()
-    tag1         = "v-"
-    tag          = tag1.concat(BUILD_NUMBER.toString())
-    image1     = "comicbook"
-    // imageTag   = "${image1}:${tag}"
-    // conditions
+    tag1       = "v-"
+    tag        = tag1.concat(BUILD_NUMBER.toString())
     isJenkins  = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
-
+    isInfo     = false 
   }
   agent any
   stages {
