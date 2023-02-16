@@ -36,6 +36,7 @@ pipeline {
             if ( changes != "" ) {
               image["needUpdate"] = true
             }
+            println isForce
             if( isForce ) {
               image["needUpdate"] = true
             }
