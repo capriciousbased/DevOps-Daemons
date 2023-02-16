@@ -5,7 +5,6 @@ def images = [
  // ["name": "testcomic",   "path": "./TestComic",    "needUpdate": false ],
   ["name": "frontend",    "path": "./frontend",    "needUpdate": false ]
 ]
-
 pipeline {
   environment {
     // HARDCODED VARIABLES
@@ -25,7 +24,6 @@ pipeline {
     isForce    = env.GIT_COMMIT.equalsIgnoreCase('force')
   }
   agent any
-
   stages {
     stage('Check for Image Changes') {
       when{ expression {isJenkins}}
@@ -45,7 +43,6 @@ pipeline {
         }
       }
     }
-
     stage('BUILD + PUSH DOCKER IMAGE') {
       when { expression {images.any { image -> image.needUpdate }}}
       steps{
