@@ -70,11 +70,6 @@ pipeline {
             def image = images[i]
             try {
               withDockerRegistry(credentialsId: 'acr_creds', url: "https://${acr}/v2/") {
-                // sh "cp ../nginx_common.conf ."
-                sh "echo acr ${acr}"
-                sh "echo image name ${image.name}"
-                sh "echo tag${tag}"
-                sh "echo path ${image.path}"
                 sh "docker build -t ${acr}/${imageTag} ${image.path}"
                 sh "docker push ${acr}/${imageTag}"
                 sh "docker rmi ${acr}/${imageTag}"
