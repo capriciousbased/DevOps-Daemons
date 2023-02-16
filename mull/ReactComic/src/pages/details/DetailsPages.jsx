@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./details.css";
 import "../../components/header/header.css";
-import img from "../../assets/images/b5.jpg";
+/* import img from "../../assets/images/b5.jpg"; */
 import { BsPencilSquare } from "react-icons/bs";
 import { AiOutlineDelete } from "react-icons/ai";
 import { useParams } from "react-router-dom";
@@ -16,7 +16,7 @@ export const DetailsPages = () => {
     let blogs = blog.find((blogs) => blogs.id === parseInt(id));
     if (blogs) {
       setBlogs(blogs);
-    }
+    }// eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
