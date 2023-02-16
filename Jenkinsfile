@@ -109,7 +109,8 @@ pipeline {
               def image = images[i]
               if (image.needUpdate) {
                 try {
-                  sh "./BashScripts/deployFile1.sh ${image1} ${tag}"              
+                 // sh "./BashScripts/deployFile1.sh ${image1} ${tag}"
+                  sh "sed -i 's|image:.*|image: devops2022.azurecr.io/${imageTag} |' ./yml-Files/allinone.yml"             
                 } catch (Exception e) {
                   println "Error deploying deployment file: ${e.getMessage()}"
                   currentBuild.result = 'FAILURE'
@@ -117,9 +118,7 @@ pipeline {
                 }
               }
             }
-
-            sh "sed -i 's|image:.*|image: devops2022.azurecr.io/${imageTag} |' ./yml-Files/allinone.yml"
-            sh "git add ./yml-Files/kustomization.yml"
+            //sh "git add ./yml-Files/kustomization.yml"
             sh "git add ./yml-Files/allinone.yml"
             // sh "git add ."
             sh "git commit -m 'jenkins push'"
