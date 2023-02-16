@@ -37,7 +37,7 @@ pipeline {
             if (changes != "" ) {
               image["needUpdate"] = true
             }
-            if ( commitMsg =~ /force/) {
+            if ( GIT_COMMIT =~ /force/) {
               image["needUpdate"] = true
             }
           }
@@ -47,7 +47,7 @@ pipeline {
     stage('print Infos') {
       steps {
         script {
-          if ( commitMsg =~ /info/) {
+          if ( GIT_COMMIT =~ /info/) {
             println "Git Author        : ${GIT_AUTHOR}"
             println "Git Commit        : ${GIT_COMMIT}"
             println "is jenkins        : ${isJenkins}"
