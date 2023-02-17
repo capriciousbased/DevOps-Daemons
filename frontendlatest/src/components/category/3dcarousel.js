@@ -104,7 +104,7 @@ Carousel.prototype.blur = function(){
 }
 
 Carousel.prototype.select = function(index){
-  selIndex = index ? index : this.frontIndex;
+  let selIndex = index ? index : this.frontIndex;
   if(this.onselect) this.onselect(this.cells[selIndex],selIndex);
 }
 
