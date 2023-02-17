@@ -68,16 +68,15 @@ pipeline {
       }
     }
     stage('Run Tests') {
-      parameters {
-        string(name: 'agentImage', defaultValue: 'devops2022.azurecr.io/jestandnpm:test', description: 'Docker image for running tests')
-        string(name: 'agentType', defaultValue: 'docker', description: 'Agent type for running tests')
-      }
       steps {
         script {
           try {
             agent {
               docker {
-                image params.agentImage
+                // string(name: 'agentImage', defaultValue: 'devops2022.azurecr.io/jestandnpm:test', description: 'Docker image for running tests')
+                // string(name: 'agentType', defaultValue: 'docker', description: 'Agent type for running tests')
+
+                image 'devops2022.azurecr.io/jestandnpm:test'
               }
             }
             sh "npm test"
