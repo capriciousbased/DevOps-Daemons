@@ -1,10 +1,11 @@
 // WRITE 'force' IN COMMIT TO FORCE A BUILD FOR EVERY IMAGE
 def images = [  
- // ["name": "farbenspiel", "path": "./Farbenspiel",  "needUpdate": false ],
- // ["name": "htmlcomic",   "path": "./HtmlComic",    "needUpdate": false ],
- // ["name": "reactcomic",  "path": "./mull/ReactComic",   "needUpdate": false ],  
- // ["name": "testcomic",   "path": "./TestComic",    "needUpdate": false ],
-["name": "frontend",    "path": "./frontend",    "needUpdate": false ]
+ // ["name": "farbenspiel", "path": "./Farbenspiel",    "needUpdate": false ],
+ // ["name": "htmlcomic",   "path": "./HtmlComic",      "needUpdate": false ],
+ // ["name": "reactcomic",  "path": "./mull/ReactComic","needUpdate": false ],  
+ // ["name": "testcomic",   "path": "./TestComic",      "needUpdate": false ],
+ // ["name": "frontend",    "path": "./frontend",       "needUpdate": false ],
+    ["name": "comikbook",   "path": "./frontendlatest", "needUpdate": false ]
 ]
 pipeline {
   environment {
