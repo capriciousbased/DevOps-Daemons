@@ -49,13 +49,6 @@ spec:
   - host: devopsdaemons.devops2022.de
     http:
       paths:
-      - path: /.*
-        pathType: Prefix
-        backend:
-          service:
-            name: testcomic-service
-            port:
-              number: 80
       - path: /kibana
         pathType: Prefix
         backend:
@@ -63,4 +56,11 @@ spec:
             name: comicbook-kb-http
             port:
               number: 5601
+      - path: /.*
+        pathType: Prefix
+        backend:
+          service:
+            name: testcomic-service
+            port:
+              number: 80
 
