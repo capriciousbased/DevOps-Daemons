@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - allinone.yml
   - kibana.yml
-  #- mongodb.yml
+  - extService.yml
 images:
    - name: nginxcomic
      newName: devops2022.azurecr.io/comicbook
