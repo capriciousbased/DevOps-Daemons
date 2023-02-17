@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: external-service
+  namespace: comicbook
+spec:
+  externalName: mongodb+srv://m001-student:YSId9v7lzJL79qsW@cluster0.ndhep.azure.mongodb.net/test
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 80
+  sessionAffinity: None
+  type: ExternalName
