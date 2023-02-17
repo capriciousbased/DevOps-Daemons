@@ -1,12 +1,15 @@
 import React from "react"
 import "./category.css"
-//import { category } from "../../assets/data/data"
+import { category } from "../../assets/data/data"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
-//import Slider from "react-slick"
+import Slider from "react-slick"
 import { GrFormPrevious } from "react-icons/gr"
 import { MdNavigateNext } from "react-icons/md"
 import { Carousel } from './3dcarousel.js'
+import { StyleFix } from './prefixfree.min.js';
+import PrefixFree from './prefixfree.min.js';
+
 
 const SampleNextArrow = (props) => {
   const { onClick } = props
