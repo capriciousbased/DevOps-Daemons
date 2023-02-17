@@ -140,14 +140,14 @@ export const Category = () => {
     }
 
     var images = [
-    '/images/Plan.jpg',
-    '/images/Code.jpg',
-    '/images/Build.jpg',
-    '/images/Test.jpg',
-    '/images/Release.jpg',
-    '/images/Deploy.jpg',
-    '/images/Operate.jpg',
-    '/images/Monitor.jpg',
+    '../../images/Plan.jpg',
+    '../../images/Code.jpg',
+    '../../images/Build.jpg',
+    '../../images/Test.jpg',
+    '../../images/Release.jpg',
+    '../../images/Deploy.jpg',
+    '../../images/Operate.jpg',
+    '../../images/Monitor.jpg',
     ];
 
     var texts = [
