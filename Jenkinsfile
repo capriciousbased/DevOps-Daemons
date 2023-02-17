@@ -65,40 +65,49 @@ pipeline {
         }
       }
     }
-    stage('Test') {
-  steps {
-    script {
-      def jestExists = sh(script: 'command -v jest >/dev/null 2>&1 && echo "Found" || echo "Not Found"', returnStatus: true) == 0
-      def npmExists = sh(script: 'which npm >/dev/null 2>&1 && echo "Found" || echo "Not Found"', returnStatus: true) == 0
-
-      if (jestExists) {
-        echo "Jest is available"
-      } else {
-        error "Jest is not available"
-      }
-      if (npmExists) {
-        echo "NPM is available"
-      } else {
-        error "NPM is not available"
-      }
-      def result = sh(script: "npm test", returnStatus: true)
-      if (result == 0) {
-        echo "Jest tests passed"
-      } else {
-        error "Jest tests failed"
+    stage('Check Dependencies') {
+      agent any
+      steps {
+        script {
+          def jestExists = sh(script: 'command -v jest >/dev/null 2>&1 && echo "Found" || echo "Not Found"', returnStatus: true) == 0
+          def npmExists = sh(script: 'which npm >/dev/null 2>&1 && echo "Found" || echo "Not Found"', returnStatus: true) == 0
+          if (jestExists) {
+            echo "Jest is available"
+          } else {
+            error "Jest is not available"
+          }
+          if (npmExists) {
+            echo "NPM is available"
+          } else {
+            error "NPM is not available"
+          }
+        }
       }
     }
-  }
-  post {
-    always {
-      echo "Test stage finished"
+    stage('Run Tests') {
+      agent {
+        docker {
+          image 'node:14-alpine'
+        }
+      }
+      when {
+        expression {
+          // Only run this stage if both npm and jest are available
+          return sh(script: 'which npm >/dev/null 2>&1 && which jest >/dev/null 2>&1', returnStatus: true) == 0
+        }
+      }
+      steps {
+        sh "npm test"
+      }
     }
-    failure {
-      error "Jest tests failed. Skipping subsequent stages."
+    post {
+      always {
+        echo "Test stage finished"
+      }
+      failure {
+        error "Jest tests failed. Skipping subsequent stages."
+      }
     }
-  }
-}
-
     stage('DEPLOY DEPLOYMENT FILE') {
       when { expression { images.any { it.needUpdate } } }
       steps{
