@@ -83,17 +83,15 @@ pipeline {
             } else {
               error "npm and/or jest not found. Skipping tests."
             }
-          } catch (err) {
-            error "Failed to run tests: ${err}"
           }
         }
-      }
-      post {
-        always {
-          echo "Test stage finished"
-        }
-        failure {
-          error "Jest tests failed. Skipping subsequent stages."
+        post {
+          always {
+            echo "Test stage finished"
+          }
+          failure {
+            error "Jest tests failed. Skipping subsequent stages."
+          }
         }
       }
     }
