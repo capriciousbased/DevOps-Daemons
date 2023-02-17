@@ -67,59 +67,18 @@ pipeline {
         }
       }
     }
-    stage('Check Dependencies') {
-      agent any
-      steps {
-        script {
-          def jestExists = sh(script: 'command -v jest >/dev/null 2>&1 && echo "Found" || echo "Not Found"', returnStatus: true) == 0
-          def npmExists = sh(script: 'which npm >/dev/null 2>&1 && echo "Found" || echo "Not Found"', returnStatus: true) == 0
-          if (jestExists) {
-            echo "Jest is available"
-          } else {
-            echo "Jest is not available"
-          }
-          if (npmExists) {
-            echo "NPM is available"
-          } else {
-            echo "NPM is not available"
-          }
-          env.JEST_EXISTS = jestExists.toString()
-          env.NPM_EXISTS = npmExists.toString()
-        }
-      }
-    }
-
     stage('Run Tests') {
-      when {
-        expression {
-          // Only run this stage if both npm and jest are available
-          return env.NPM_EXISTS == "true" && env.JEST_EXISTS == "true"
-        }
-      }
       steps {
         script {
           def agentImage = 'devops2022.azurecr.io/jestandnpm:test'
           def agentType = 'docker'
-          def jestExists = env.JEST_EXISTS == "true"
-          def npmExists = env.NPM_EXISTS == "true"
-
-          if (!jestExists || !npmExists) {
-            agentImage = 'ubuntu:latest'
-            agentType = 'node'
-          }
-
+          
           echo "Using agent: ${agentType}"
           echo "Agent image: ${agentImage}"
 
-          if (agentType == 'docker') {
-            agent {
-              docker {
-                image agentImage
-              }
-            }
-          } else {
-            agent {
-              label 'node'
+          agent {
+            docker {
+              image agentImage
             }
           }
           sh "npm test"
