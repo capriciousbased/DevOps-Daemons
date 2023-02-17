@@ -1,4 +1,4 @@
-.category {
+/* .category {
   margin-top: 50px;
   position: relative;
 }
@@ -47,6 +47,61 @@
   font-weight: 300;
   padding: 15px;
 }
+*/
+#carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20vh;
+}
+
+.flex-parent-element {
+  display: flex;
+  width: 100%;
+}
+
+.flex-child-element {
+  flex: 1;
+  margin: 10px;
+}
+
+.flex-child-element:first-child {
+  margin-right: 20px;
+}
+
+#container1 {
+  align-self: flex-end;
+}
+
+#container2 {
+  align-self: flex-start;
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: ghostwhite;
+  font-size: 72px;
+  font-weight: bold;
+  text-shadow: 3px 3px 6px black;
+}
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: whitesmoke;
+  font-size: 72px;
+  font-weight: bold;
+  text-shadow: 3px 3px 6px black;
+}
+
+
+
+
+
 /*---------------control-btn-------------*/
 .control-btn button {
   background: white;
