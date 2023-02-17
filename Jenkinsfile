@@ -64,6 +64,24 @@ pipeline {
         }
       }
     }
+    stage('Check Jest and NPM Availability') {
+      steps {
+        script {
+          def jestExists = sh(script: 'command -v jest >/dev/null 2>&1 && echo "Found" || echo "Not Found"', returnStatus: true) == 0
+          def npmExists = sh(script: 'command -v npm >/dev/null 2>&1 && echo "Found" || echo "Not Found"', returnStatus: true) == 0
+          if (jestExists) {
+              echo "Jest is available"
+          } else {
+              echo "Jest is not available"
+          }
+          if (npmExists) {
+              echo "NPM is available"
+          } else {
+              echo "NPM is not available"
+          }
+        }
+      }
+    }
     stage('DEPLOY DEPLOYMENT FILE') {
       when { expression { images.any { it.needUpdate } } }
       steps{
