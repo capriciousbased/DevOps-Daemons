@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css"
 //import Slider from "react-slick"
 import { GrFormPrevious } from "react-icons/gr"
 import { MdNavigateNext } from "react-icons/md"
-import { Carousel }
+import { Carousel } from './3dcarousel.js'
 
 const SampleNextArrow = (props) => {
   const { onClick } = props
