@@ -35,6 +35,8 @@
 */
 import { PrefixFree } from './prefixfree.min.js';
 
+export { Carousel };
+
 function Carousel(container,nbcell,cwidth,cheight,onadded,onfocus,onblur,onselect){
   this.carousel = document.createElement("div");
   this.id = "Carousel" + Math.floor((Math.random()*10000000)+1);;
