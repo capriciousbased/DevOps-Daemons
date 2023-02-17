@@ -57,14 +57,11 @@ spec:
             name: testcomic-service
             port:
               number: 80
-  - host: devopsdaemons.devops2022.de
-    http:
-      paths:
       - path: /kibana
         pathType: Prefix
         backend:
           service:
             name: comicbook-kb-http
             port:
-              name: http
+              number: 5601
 
