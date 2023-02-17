@@ -1,0 +1,96 @@
+.contact .wrapper {
+    display: grid;
+    gap: 25px;
+  }
+  .section-subtitle {
+    color: hsl(357, 37%, 62%);
+    text-transform: uppercase;
+    font-weight: var(--fw-700);
+    letter-spacing: 4px;
+    text-align: center;
+}
+.section-title {
+  text-align: center;
+}
+  .contact-form {
+    background-color: hsl(20, 43%, 93%);
+    padding: 20px;
+  }
+
+  .input-field {
+    background-color: hsl(0, 0%, 100%);
+    padding: 10px;
+    margin-block-end: 15px;
+    outline: none;
+    border-block-end: 2px solid transparent;
+  }
+
+  .input-field:focus {
+    border-color: hsl(357, 37%, 62%);
+  }
+
+  textarea.input-field {
+    resize: vertical;
+    min-height: 120px;
+    height: 120px;
+    max-height: 200px;
+  }
+
+  .contact-form .btn {
+    margin-inline: auto;
+  }
+
+  .contact-card {
+    background-color: hsl(20, 43%, 93%);
+    padding: 30px;
+  }
+
+  .contact-card .card-title {
+    font-family: "Philosopher", sans-serif;
+    text-transform: uppercase;
+    font-weight: var(--fw-700);
+  }
+
+  .contact-card>li:not(:last-child) {
+    margin-block-end: 30px;
+  }
+
+  .contact-card .card-link {
+    color: hsl(304, 14%, 46%);
+    transition: 0.25s ease;
+  }
+
+  .contact-card .card-link:is(:hover, :focus) {
+    color: hsl(357, 37%, 62%);
+  }
+
+  .social-list-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-block-end: 15px;
+  }
+
+  .social-list {
+    display: flex;
+    gap: 10px;
+  }
+
+  .social-link {
+    background-color: hsl(357, 37%, 62%);
+    color: var(--white);
+    font-size: 20px;
+    padding: 5px;
+    box-shadow: hsl(0, 0%, 100%);
+    transition: 0.25s ease;;
+  }
+
+  .social-link:is(:hover, :focus) {
+    background-color: hsl(304, 14%, 46%);
+    box-shadow: none;
+  }
+
+  @media (min-width: 768px){
+     .contact .wrapper {
+    grid-template-columns: 1fr 1fr;
+}
+  }
