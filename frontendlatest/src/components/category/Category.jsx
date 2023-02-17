@@ -8,7 +8,7 @@ import { GrFormPrevious } from "react-icons/gr"
 import { MdNavigateNext } from "react-icons/md"
 import { Carousel } from './3dcarousel.js'
 import { StyleFix } from './prefixfree.min.js';
-import PrefixFree from './prefixfree.min.js';
+import { PrefixFree } from './prefixfree.min.js';
 
 
 const SampleNextArrow = (props) => {
