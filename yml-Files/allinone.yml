@@ -66,4 +66,3 @@ spec:
             name: kibana-service
             port:
               number: 5601
-
