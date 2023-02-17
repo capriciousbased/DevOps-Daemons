@@ -70,13 +70,10 @@ pipeline {
     stage('Run Tests') {
       steps {
         script {
-          try {
-            agent {
-              docker {
-                image params.agentImage
-              }
+          agent {
+            docker {
+              image params.agentImage
             }
-
             // Check if npm and jest are available
             def npmExists = sh(script: "which npm", returnStatus: true) == 0
             def jestExists = sh(script: "which jest", returnStatus: true) == 0
