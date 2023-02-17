@@ -73,13 +73,19 @@ pipeline {
           try {
             agent {
               docker {
-                // string(name: 'agentImage', defaultValue: 'devops2022.azurecr.io/jestandnpm:test', description: 'Docker image for running tests')
-                // string(name: 'agentType', defaultValue: 'docker', description: 'Agent type for running tests')
-
-                image 'devops2022.azurecr.io/jestandnpm:test'
+                image params.agentImage
               }
             }
-            sh "npm test"
+
+            // Check if npm and jest are available
+            def npmExists = sh(script: "which npm", returnStatus: true) == 0
+            def jestExists = sh(script: "which jest", returnStatus: true) == 0
+
+            if (npmExists && jestExists) {
+              sh "npm test"
+            } else {
+              error "npm and/or jest not found. Skipping tests."
+            }
           } catch (err) {
             error "Failed to run tests: ${err}"
           }
