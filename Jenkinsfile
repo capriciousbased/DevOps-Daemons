@@ -85,13 +85,13 @@ pipeline {
             }
           }
         }
-        post {
-          always {
-            echo "Test stage finished"
-          }
-          failure {
-            error "Jest tests failed. Skipping subsequent stages."
-          }
+      }
+      post {
+        always {
+          echo "Test stage finished"
+        }
+        failure {
+          error "Jest tests failed. Skipping subsequent stages."
         }
       }
     }
