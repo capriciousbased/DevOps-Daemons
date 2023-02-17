@@ -69,7 +69,8 @@ pipeline {
   steps {
     script {
       def jestExists = sh(script: 'command -v jest >/dev/null 2>&1 && echo "Found" || echo "Not Found"', returnStatus: true) == 0
-      def npmExists = sh(script: 'command -v npm >/dev/null 2>&1 && echo "Found" || echo "Not Found"', returnStatus: true) == 0
+      def npmExists = sh(script: 'which npm >/dev/null 2>&1 && echo "Found" || echo "Not Found"', returnStatus: true) == 0
+
       if (jestExists) {
         echo "Jest is available"
       } else {
