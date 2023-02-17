@@ -66,3 +66,5 @@ spec:
             name: comicbook-kb-http
             port:
               number: 5601
+            namespace: comicbook
+            
