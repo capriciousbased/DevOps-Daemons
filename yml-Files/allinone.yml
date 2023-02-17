@@ -59,10 +59,10 @@ spec:
   - host: devopsdaemons.devops2022.de
     http:
       paths:
-      - path: /kibana/.*
+      - path: /kibana
         pathType: Prefix
         backend:
           service:
-            name: kibana-service
+            name: comicbook-kb-http
             port:
               number: 5601
