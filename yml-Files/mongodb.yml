@@ -13,7 +13,7 @@ spec:
         - name: myapp
           image: myapp:latest
           env:
-            - name: MONGODB_CONNECTION_STRING
+            - name: mongodb+srv://m001-student:YSId9v7lzJL79qsW@cluster0.ndhep.azure.mongodb.net/test
               valueFrom:
                 secretKeyRef:
                   name: mongodb-connection
