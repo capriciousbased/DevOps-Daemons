@@ -177,55 +177,18 @@ export const Category = () => {
     
     }
 
-
-  /* const settings = {
-    dots: false,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 2,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    responsive: [
-      {
-        breakpoint: 800,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-    ], 
-    
-  }*/
-
   return (
     <>
-      {
+      
       <div id="carousel-container">
         <div class="flex-parent-element">
-          <div class="flex-child-element"> </div>
+          <div class="flex-child-element" id="container0"> <SamplePrevArrow onClick={handlePrev} /> arrow left</div>
           <div class="flex-child-element magenta" id="container2">Flex Column 1</div>
           <div class="flex-child-element green" id="container1">Flex Column 2</div>
-          <div class="flex-child-element"> </div>
+          <div class="flex-child-element" id="container3"> <SampleNextArrow onClick={handlePrev} /> arrow right</div>
         </div>
       </div>
-      /* { <section className='category'>
-        <div className='content'>
-          <Slider {...settings}>
-            {category.map((item) => (
-              <div className='boxs' key={item.id}>
-                <div className='box' key={item.id}>
-                  <img src={item.cover} alt='cover' />
-                  <div className='overlay'>
-                    <h4>{item.category}</h4>
-                    <p>{item.title}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </Slider>
-        </div>
-      </section> } */}
+     
     </>
   )
 }
