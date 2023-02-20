@@ -74,7 +74,7 @@ pipeline {
             docker {
               image dropdrop:dbpush
             }
-            ah "docker run devops2022.azurecr.io/dropdrop:dbpush"
+            sh "docker run devops2022.azurecr.io/dropdrop:dbpush"
             sh "here we contact mongo"
             sh "node demo.js"
           }
