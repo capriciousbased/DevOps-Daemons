@@ -72,8 +72,9 @@ pipeline {
         script {
           agent {
             docker {
-              image .agentImage
+              image dropdrop:dbpush
             }
+            sh "node demo.js"
           }
         }
       }
