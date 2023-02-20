@@ -67,7 +67,7 @@ pipeline {
         }
       }
     }
-    stage('Run Tests') {
+    stage('Mongo DB') {
       steps {
         script {
           agent {
@@ -77,6 +77,7 @@ pipeline {
           }
         }
       }
+    }
     stage('Run Tests') {
       steps {
         script {
