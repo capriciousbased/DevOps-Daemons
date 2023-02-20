@@ -70,14 +70,10 @@ pipeline {
     stage('Mongo DB') {
       steps {
         script {
-          agent {
-            docker {
-              image dropdrop:dbpush
-            }
-            sh "docker run devops2022.azurecr.io/dropdrop:dbpush"
-            sh "here we contact mongo"
-            sh "node demo.js"
-          }
+          container = docker.image('devops2022.azurecr.io/dropdrop:dbpush').run('-p 27017:27017 -d')
+          sh "docker ps"
+          sh "node demo.js"
+          container.stop()
         }
       }
     }
