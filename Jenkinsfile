@@ -67,16 +67,16 @@ pipeline {
         }
       }
     }
-    stage('Mongo DB') {
-      steps {
-        script {
-          container = docker.image('devops2022.azurecr.io/dropdrop:dbpush').run('-p 27017:27017 -d')
-          sh "docker ps"
+    //stage('Mongo DB') {
+      //steps {
+       // script {
+        //  container = docker.image('devops2022.azurecr.io/dropdrop:dbpush').run('-p 27017:27017 -d')
+         // sh "docker ps"
          // sh "node demo.js"
-          container.stop()
-        }
-      }
-    }
+       //   container.stop()
+      //  }
+     // }
+   // }
     stage('Run Tests') {
       steps {
         script {
