@@ -74,6 +74,7 @@ pipeline {
             docker {
               image dropdrop:dbpush
             }
+            sh "here we contact mongo"
             sh "node demo.js"
           }
         }
@@ -84,7 +85,7 @@ pipeline {
         script {
           agent {
             docker {
-              image dropdrop:dbpush
+              image jestandnpm:test
             }
             // Check if npm and jest are available
             def npmExists = sh(script: "which npm", returnStatus: true) == 0
