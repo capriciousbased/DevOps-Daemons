@@ -72,7 +72,17 @@ pipeline {
         script {
           agent {
             docker {
-              image params.agentImage
+              image .agentImage
+            }
+          }
+        }
+      }
+    stage('Run Tests') {
+      steps {
+        script {
+          agent {
+            docker {
+              image dropdrop:dbpush
             }
             // Check if npm and jest are available
             def npmExists = sh(script: "which npm", returnStatus: true) == 0
