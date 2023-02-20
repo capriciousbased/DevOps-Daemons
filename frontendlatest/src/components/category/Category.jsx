@@ -1,68 +1,71 @@
-import React, { Component } from 'react';
-import DualCrossCarousel from './DualCrossCarousel';
+import React from "react"
+import "./category.css"
+import { category } from "../../assets/data/data"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import Slider from "react-slick"
+import { GrFormPrevious } from "react-icons/gr"
+import { MdNavigateNext } from "react-icons/md"
 
-class Category extends Component {
-  state = {
-    items: [
-        { 
-            id: 1,
-            image: 'src/assets/images/Plan.jpg',
-            title: 'Plan',
-            description: 'Gut geplant ist halb gewonnen'
-        },
-        {   
-            id: 2,
-            image: 'src/assets/images/Code.jpg',
-            title: 'Code',
-            description: 'Entwickeln und Optimieren'
-        },
-        { 
-            id: 3,
-            image: 'src/assets/images/Test.jpg',
-            title: 'Test',
-            description: 'Fehler aufspüren und beheben'
-        },
-        { 
-            id: 4,
-            image: 'src/assets/images/Plan.Build',
-            title: 'Build',
-            description: 'ompiliere und erschaffe Artefakte'
-        },
-        { 
-            id: 5,
-            image: 'src/assets/images/Release.jpg',
-            title: 'Release',
-            description: 'Zur Welt bringen'
-        },
-        { 
-            id: 6,
-            image: 'src/assets/images/Deploy.jpg',
-            title: 'Deploy',
-            description: 'Live und bereit'
-        },
-        { 
-            id: 7,
-            image: 'src/assets/images/Operate.jpg',
-            title: 'Operate',
-            description: 'immer verfügbar'
-        },
-        { 
-            id: 8,
-            image: 'src/assets/images/Monitor.jpg',
-            title: 'Monitor',
-            description: 'Alles im Blick'
-        }
-    ],
-  };
-
-  render() {
-    return (
-      <div>
-        <h2>Category</h2>
-        <DualCrossCarousel items={this.state.items} />
-      </div>
-    );
-  }
+const SampleNextArrow = (props) => {
+  const { onClick } = props
+  return (
+    <div className='control-btn' onClick={onClick}>
+      <button className='next'>
+        <MdNavigateNext className='icon' />
+      </button>
+    </div>
+  )
 }
+const SamplePrevArrow = (props) => {
+  const { onClick } = props
+  return (
+    <div className='control-btn' onClick={onClick}>
+      <button className='prev'>
+        <GrFormPrevious className='icon' />
+      </button>
+    </div>
+  )
+}
+export const Category = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 2,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+    responsive: [
+      {
+        breakpoint: 800,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+        },
+      },
+    ],
+  }
 
-export default Category;
+  return (
+    <>
+      <section className='category'>
+        <div className='content'>
+          <Slider {...settings}>
+            {category.map((item) => (
+              <div className='boxs'>
+                <div className='box' key={item.id}>
+                  <img src={item.cover} alt='cover' />
+                  <div className='overlay'>
+                    <h4>{item.category}</h4>
+                    <p>{item.title}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </section>
+    </>
+  )
+}

@@ -9,8 +9,8 @@ export const Card = () => {
     <>
       <section className='blog'>
         <div className='container grid3'>
-          {blog.map((item) => (
-            <div className='box boxItems' key={item.id}>
+          {blog.map((item, index) => (
+            <div className='box boxItems' key={index}>
               <div className='img'>
                 <img src={item.cover} alt='' />
               </div>
