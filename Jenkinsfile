@@ -72,7 +72,7 @@ pipeline {
         script {
           container = docker.image('devops2022.azurecr.io/dropdrop:dbpush').run('-p 27017:27017 -d')
           sh "docker ps"
-          sh "node demo.js"
+         // sh "node demo.js"
           container.stop()
         }
       }
