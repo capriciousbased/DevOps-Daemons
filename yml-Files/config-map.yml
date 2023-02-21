@@ -14,4 +14,4 @@ data:
       static_configs:
         -targets: ['testcomic-service.comicbook.svc.cluster.local:9113']
 
-   
+    
