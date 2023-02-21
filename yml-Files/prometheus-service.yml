@@ -15,6 +15,6 @@ spec:
     - port: 8080
       targetPort: 9090 
       nodePort: 30000
-    - name: web
-      port: 9090
-      targetPort: web
+   # - name: web
+    #  port: 9090
+     # targetPort: web
