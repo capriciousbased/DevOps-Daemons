@@ -13,6 +13,8 @@ RUN npm run build
 
 FROM nginx:alpine
 
+COPY ./metric/index.html /usr/share/nginx/metric
+
 COPY --from=build-stage /app/build/ /usr/share/nginx/html
 
-COPY ./metric/ /usr/share/nginx/metric
+

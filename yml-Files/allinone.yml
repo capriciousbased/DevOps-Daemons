@@ -14,9 +14,15 @@ spec:
     spec:
       containers:
       - name: nginxcomic
-        image: devops2022.azurecr.io/comikbook:v-433 
+        image: devops2022.azurecr.io/comikbook:v-445 
         ports:
         - containerPort: 80
+      - name: prometheus-metrics
+        image: devops2022.azurecr.io/comikbook:v-445 
+        ports:
+        - containerPort: 8081
+        command: ["/bin/prometheus-metrics"]
+        args: ["--addr=:8081", "--path=/metrics"]
 ---
 apiVersion: v1
 kind: Service
