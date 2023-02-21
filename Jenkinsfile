@@ -4,8 +4,8 @@ def images = [
  // ["name": "htmlcomic",   "path": "./HtmlComic",      "needUpdate": false ],
  // ["name": "reactcomic",  "path": "./mull/ReactComic","needUpdate": false ],  
  // ["name": "testcomic",   "path": "./TestComic",      "needUpdate": false ],
- // ["name": "frontend",    "path": "./frontend",       "needUpdate": false ],
-    ["name": "comikbook",   "path": "./frontendlatest", "needUpdate": false ],
+  ["name": "frontend",    "path": "./frontend",       "needUpdate": false ],
+ //  ["name": "comikbook",   "path": "./frontendlatest", "needUpdate": false ],
  // ["name": "jestandnpm",  "path": "./TestImage"     , "needUpdate": false],
 ]
 pipeline {
