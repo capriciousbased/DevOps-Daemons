@@ -12,6 +12,7 @@ data:
         }
 
         http {
+            default_type text/css;
             server {
                 listen 80;
                 server_name devopsdaemons.devops2022.de;
