@@ -17,19 +17,19 @@ spec:
         image: devops2022.azurecr.io/comikbook:v-480 
         ports:
         - containerPort: 80
-#        volumeMounts:
-#          - name: nginx-conf
-#            mountPath: /etc/nginx
-#      - name: exporter
-#        image: devops2022.azurecr.io/comikbook:v-480 
-#        ports:
-#        - containerPort: 9113
-#        args:
-#        - -nginx.scrape-uri=https://devopsdaemons.devops2022.de/nginx_status
-#      volumes:
-#        - name: nginx-conf
-#          configMap:
-#            name: nginx-conf      
+        volumeMounts:
+          - name: nginx-conf
+            mountPath: /etc/nginx
+ #     - name: exporter
+ #       image: devops2022.azurecr.io/comikbook:v-480 
+ #       ports:
+ #       - containerPort: 9113
+ #       args:
+ #       - -nginx.scrape-uri=https://devopsdaemons.devops2022.de/nginx_status
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf      
 ---
 apiVersion: v1
 kind: Service
