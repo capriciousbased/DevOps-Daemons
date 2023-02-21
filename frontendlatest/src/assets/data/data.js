@@ -23,13 +23,13 @@ export const nav = [
 export const category = [
   {
     id: 1,
-    category: "AgilesArbeiten",
+    category: "Plan",
     title: "Stay Calm And Surf",
     cover: "../images/category/ca1.png",
   },
   {
     id: 2,
-    category: "CI/CD",
+    category: "Code",
     title: "Becoming a Dragonfly",
     cover: "../images/category/ca2.png",
   },
