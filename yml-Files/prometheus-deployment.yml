@@ -24,7 +24,7 @@ spec:
             - containerPort: 9090
           volumeMounts:
             - name: prom-config-map
-              mountPath: /etc/prometheus
+              mountPath: /etc/prometheus 
       volumes:
         - name: prom-config-map
           configMap:
