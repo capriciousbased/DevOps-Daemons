@@ -3,6 +3,8 @@ kind: Kustomization
 resources:
   - allinone.yml
   - kibana.yml
+  - prometheus-deployment.yml
+  - prometheus-service.yml
 images:
    - name: nginxcomic
      newName: devops2022.azurecr.io/comicbook
