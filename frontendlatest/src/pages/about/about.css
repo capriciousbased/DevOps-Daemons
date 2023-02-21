@@ -1,0 +1,42 @@
+  
+  .author {
+    background-color: hsl(20, 43%, 93%);
+  }
+
+
+  .author :is(.section-subtitle, .section-title) {
+    text-align: left;
+  }
+  .section {
+    padding-block: 80px;
+}
+
+  .author-content {
+    background-color: hsl(0, 0%, 100%);
+    padding: 30px;
+  }
+
+  .author-name {
+    font-size: 2rem;
+    margin-block-end: 30px;
+  }
+
+  .author .section-text {
+    font-size: unset;
+  }
+
+  @media (min-width: 992px) {
+.container {
+    max-width: 960px;
+}
+}
+
+@media (min-width: 992px){
+
+
+.author-content {
+    margin-block-start: 40px;
+    margin-inline-start: -30px;
+    padding-block-end: 70px;
+}
+}

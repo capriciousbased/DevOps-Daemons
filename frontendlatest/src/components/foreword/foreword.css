@@ -1,0 +1,27 @@
+
+.vorwort {
+   width: 95%;
+   margin: 0 auto;
+    background-color: hsl(0, 0%, 100%);
+    padding: 25px;
+    border-radius:  5px;
+    box-shadow: 2px 0 15px 5px hsla(231, 94%, 7%, 0.06);
+    transition: var(--transition-2);
+  }
+
+  .vorwort:is(:hover, :focus-within) {
+    transform: translateY(-10px);
+  }
+
+  .vorwort-title {
+    padding: 20px;
+
+  }
+
+  .vorwort p {
+    color: #999;
+    font-weight: 400;
+    margin: 20px 0;
+    font-size: 17px;
+    line-height: 25px;
+  }
