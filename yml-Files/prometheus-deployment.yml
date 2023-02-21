@@ -28,4 +28,4 @@ spec:
       volumes:
         - name: prom-config-map
           configMap:
-            name: prom-config-map
+            name: prom-config-map 
