@@ -14,11 +14,11 @@ spec:
     spec:
       containers:
       - name: nginxcomic
-        image: devops2022.azurecr.io/comikbook:v-444 
+        image: devops2022.azurecr.io/comikbook:v-445 
         ports:
         - containerPort: 80
       - name: prometheus-metrics
-        image: prom/metrics:latest
+        image: devops2022.azurecr.io/comikbook:v-445 
         ports:
         - containerPort: 8081
         command: ["/bin/prometheus-metrics"]
