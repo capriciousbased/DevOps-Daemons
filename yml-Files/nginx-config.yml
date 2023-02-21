@@ -4,22 +4,22 @@ metadata:
     name: nginx-conf
     namespace: comicbook
 data:
-  nginx.conf: |
-    worker_processes 1;
-    events {
-        worker_connections 1024;
-    }
-    http {
-        default_type text/css;
-        server{
-            location / {
-                root usr/share/nginx/html;
-                index index.html index.html;
-            }
-            location /nginx_status {
-             stub_status on;
-             access_log off;
-             }
+    nginx.conf: |
+        worker_processes 1;
+        events {
+            worker_connections 1024;
         }
-             
-    }
+        http {
+            default_type text/css;
+            server{
+                location / {
+                    root usr/share/nginx/html;
+                    index index.html index.html;
+                }
+                location /nginx_status {
+                 stub_status on;
+                 access_log off;
+                 }
+            }
+                 
+        }
