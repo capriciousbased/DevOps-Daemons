@@ -11,13 +11,7 @@ data:
         }
         http {
             server{
-                location / {
-                    root usr/share/nginx/html;
-                    index index.html index.html;
-                }
                 location /nginx_status {
                  stub_status on;
                  access_log off;
-                 }
-            }
-        } 
+                 }}}
