@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: prometheus-deployment
   namespace: comicbook
-  labels:
+    labels:
     app: prometheus-server
 spec:
   replicas: 1
