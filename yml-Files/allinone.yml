@@ -26,10 +26,10 @@ spec:
 #        - containerPort: 9113
 #        args:
 #        - -nginx.scrape-uri=https://devopsdaemons.devops2022.de/nginx_status
-#      volumes:
-#        - name: nginx-conf
-#          configMap:
-#            name: nginx-conf      
+      volumes:
+        - name: nginx-conf
+          configMap:
+            name: nginx-conf      
 ---
 apiVersion: v1
 kind: Service
