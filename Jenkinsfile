@@ -125,7 +125,7 @@ pipeline {
               if (image.needUpdate) {
                 def imageTag   = "${image.name}:${tag}"
                 try {
-                  sh "sed -i 's|image:.*|image: devops2022.azurecr.io/${imageTag} |' ./yml-Files/allinone.yml"             
+                  sh "sed -i '17s|image:.*|image: devops2022.azurecr.io/${imageTag} |' ./yml-Files/allinone.yml"             
                 } catch (Exception e) {
                   println "Error deploying deployment file: ${e.getMessage()}"
                   currentBuild.result = 'FAILURE'

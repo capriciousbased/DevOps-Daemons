@@ -14,14 +14,14 @@ spec:
     spec:
       containers:
       - name: nginxcomic
-        image: devops2022.azurecr.io/comikbook:v-484 
+        image: devops2022.azurecr.io/comikbook:v-483 
         ports:
         - containerPort: 80
         volumeMounts:
           - name: nginx-conf
             mountPath: /etc/nginx
       - name: exporter
-        image: devops2022.azurecr.io/comikbook:v-484 
+        image: nginx/nginx-prometheus-exporter 
         ports:
         - containerPort: 9113
         args:
