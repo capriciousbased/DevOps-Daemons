@@ -10,7 +10,6 @@ data:
             worker_connections 1024;
         }
         http {
-            default_type text/css;
             server{
                 location / {
                     root usr/share/nginx/html;
@@ -21,5 +20,5 @@ data:
                  access_log off;
                  }
             }
-                 
+
         }
