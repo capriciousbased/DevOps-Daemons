@@ -4,7 +4,7 @@ metadata:
     name: nginx-conf
     namespace: comicbook
 data:
-    nginx_conf: |
+  nginx.conf: |
     worker_processes 1;
     events {
         worker_connections 1024;
