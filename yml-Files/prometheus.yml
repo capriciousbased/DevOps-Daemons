@@ -15,15 +15,15 @@ global:
       # Override the global default and scrape targets from this job every 5 seconds.
       scrape_interval: 5s
 
-      static_configs:
-        - targets: ['localhost:9090']
+#      static_configs:
+#        - targets: ['localhost:9090']
   
     - job_name: 'nginx'
 
       # Override the global default and scrape targets from this job every 5 seconds.
       scrape_interval: 5s
 
-      metrics_path: /
+      metrics_path: /metrics
 
       static_configs:
-        - targets: ['nginx:80']
+        - targets: ['testcomic-service.comicbook.svc.cluster.local:9113']
