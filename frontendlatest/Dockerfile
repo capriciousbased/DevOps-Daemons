@@ -5,7 +5,6 @@ WORKDIR /app
 COPY package*.json /app/
 
 RUN npm install
-RUN npm install react-spring-3d-carousel --force
 
 COPY . .
 
