@@ -70,7 +70,7 @@ pipeline {
     stage('Mongo DB') {
       steps {
         script {
-          container = docker.image("devops2022.azurecr.io/dropdrop:dbpush2").run("-p 27017:27017 -d  --env buildNr=${imageTag}") 
+          container = docker.image('devops2022.azurecr.io/dropdrop:dbpush2').run('-p 27017:27017 -d  --env buildNr=${imageTag}') 
           sh "docker ps"
         
           container.stop()
