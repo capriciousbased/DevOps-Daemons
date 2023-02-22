@@ -31,7 +31,7 @@ export const Footer = () => {
             <AiFillTwitterCircle className="icon" />
             </a>
             <a
-              href="https://www.linkedin.com/"
+              href="https://www.linkedin.com/in/devops-daemons-411378267/"
               target="_blank"
               rel="noopener noreferrer"
             >
