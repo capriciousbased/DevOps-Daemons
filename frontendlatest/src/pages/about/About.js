@@ -6,11 +6,17 @@ const About = () => {
       <div className="about container">
         <div className="author-content">
           <p className="section-subtitle">DER AUTOR</p>
-
-          <h2 className="h2 section-title">Jörg Miethe</h2>
-
-          <p className="author-name"></p>
-
+          <div className="author-info">
+          <div className="image">
+              <img
+                src="https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=600"
+                alt=""
+              />
+          </div>
+          <div>
+            <h2 className="h2 section-title">Jörg Miethe</h2>
+          </div>
+          </div>
           <div className="section-text">
             Im Studium sind mir besonders zwei Arten von Professoren in
             Erinnerung geblieben:
@@ -50,10 +56,17 @@ const About = () => {
         </div>
         <div className="author-content">
           <p className="section-subtitle">DER AUTOR</p>
-
-          <h2 className="h2 section-title">Felix Strauß</h2>
-
-          <p className="author-name"></p>
+          <div className="author-info">
+          <div className="image">
+              <img
+                src="https://media.licdn.com/dms/image/C5603AQFDys5Htra0nQ/profile-displayphoto-shrink_400_400/0/1662128333451?e=1682553600&v=beta&t=BrX1hNnjShX4JB9j2mUaobq3yugAlwBCuoK_R9fjNgc "
+                alt=""
+              />
+          </div>
+          <div>
+            <h2 className="h2 section-title">Felix Strauß</h2>
+          </div>
+          </div>
 
           <div className="section-text">
             <p>
