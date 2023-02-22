@@ -8,8 +8,8 @@ export const Card = () => {
   return (
     <>
       <section className='blog'>
-      <p class="section-subtitle">KAPITELS</p>
-          <h2 class="h2 section-title has-underline">
+      <p className="section-subtitle">KAPITELS</p>
+          <h2 className="h2 section-title has-underline">
           Kapitel ihrer Wahl
             <span className="span has-before"></span>
           </h2>
