@@ -19,14 +19,14 @@ export const User = () => {
         {user ? (
           <>
             <button className='img' onClick={() => setProfileOpen(!profileOpen)}>
-              <img src='https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=600' alt='' />
+              <img src='https://media.licdn.com/dms/image/C5603AQFDys5Htra0nQ/profile-displayphoto-shrink_400_400/0/1662128333451?e=1682553600&v=beta&t=BrX1hNnjShX4JB9j2mUaobq3yugAlwBCuoK_R9fjNgc' alt='' />
             </button>
             {profileOpen && (
               <div className='openProfile boxItems' onClick={close}>
                 <Link to='/account'>
                   <div className='image'>
                     <div className='img'>
-                      <img src='https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=600' alt='' />
+                      <img src='https://media.licdn.com/dms/image/C5603AQFDys5Htra0nQ/profile-displayphoto-shrink_400_400/0/1662128333451?e=1682553600&v=beta&t=BrX1hNnjShX4JB9j2mUaobq3yugAlwBCuoK_R9fjNgc' alt='' />
                     </div>
                     <div className='text'>
                       <h4>Felix strauß</h4>

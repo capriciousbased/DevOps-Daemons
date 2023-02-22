@@ -9,7 +9,7 @@ const About = () => {
           <div className="author-info">
           <div className="image">
               <img
-                src="https://images.pexels.com/photos/1097456/pexels-photo-1097456.jpeg?auto=compress&cs=tinysrgb&w=600"
+                src="https://github.com/Brights-DevOps-2022-Script/DevOps-Daemons/blob/main/frontendlatest/src/pages/about/images/jorg.png?raw=true"
                 alt=""
               />
           </div>
@@ -59,7 +59,7 @@ const About = () => {
           <div className="author-info">
           <div className="image">
               <img
-                src="https://media.licdn.com/dms/image/C5603AQFDys5Htra0nQ/profile-displayphoto-shrink_400_400/0/1662128333451?e=1682553600&v=beta&t=BrX1hNnjShX4JB9j2mUaobq3yugAlwBCuoK_R9fjNgc "
+                src="https://media.licdn.com/dms/image/C5603AQFDys5Htra0nQ/profile-displayphoto-shrink_400_400/0/1662128333451?e=1682553600&v=beta&t=BrX1hNnjShX4JB9j2mUaobq3yugAlwBCuoK_R9fjNgc"
                 alt=""
               />
           </div>
