@@ -1,6 +1,6 @@
 global:
   scrape_interval:     15s 
-  external_labels:     15s
+  external_labels:     
     monitor: 'codelab-monitor'
 scrape_configs:
   - job_name: 'comicbook-nginx-exporter'
