@@ -21,3 +21,4 @@ scrape_configs:
       - targets: ['testcomic-service.comicbook.svc.cluster.local:9113'] 
 
       #docker run --rm -it -v $(pwd)/etc:/etc/prometheus  prom/prometheus:latest
+ 
