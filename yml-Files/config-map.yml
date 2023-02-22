@@ -6,7 +6,7 @@ data:
   prometheus.yml: |
     global:
       scrape_interval: 30s
-      scrape-configs:
+    scrape-configs:
         - job_name: comicbook-nginx-exporter
           scrape_interval: 15s
           metrics_path: "/metrics"
