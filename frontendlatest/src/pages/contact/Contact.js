@@ -31,6 +31,7 @@ const Contact = () => {
     } else {
       alert('Please fill in all fields.');
     }
+
   }
   return (
     <div className="contactSection" id="contact" aria-label="contact">
@@ -50,7 +51,7 @@ const Contact = () => {
             <textarea name="message" placeholder="Ihre Nachricht" className="input-field" value={message} onChange={e => setMessage(e.target.value)}></textarea>
 
             <button type="submit" className="submitButton" onClick={submit} >jetzt senden</button>
-            <span className={emailSent ? 'visible' : null}>Vielen Dank für Ihre Nachricht, wir werden uns umgehend mit Ihnen in Verbindung setzen!</span>
+            <span className={emailSent ? 'visible' : 'hidden'}>Vielen Dank für Ihre Nachricht, wir werden uns umgehend mit Ihnen in Verbindung setzen!</span>
           </form>
         </div>
       </div>
