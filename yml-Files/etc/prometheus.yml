@@ -13,7 +13,7 @@ scrape_configs:
   - job_name: 'comicbook-nginx-exporter'
 
       # Override the global default and scrape targets from this job every 5 seconds.
-    scrape_interval: 5s 
+    scrape_interval: 15s 
 
     metrics_path: /metrics
 
