@@ -35,25 +35,25 @@ export const category = [
   },
   {
     id: 3,
-    category: "Netwerken",
+    category: "Deploy",
     title: "There's always light at the end of the tunnel",
     cover: "../images/category/ca3.png",
   },
   {
     id: 4,
-    category: "Programierung",
+    category: "Monitor",
     title: "Stay Calm And Surf",
     cover: "../images/category/ca4.png",
   },
   {
     id: 5,
-    category: "SourceControlManagement",
+    category: "Operate",
     title: "There's always light at the end of the tunnel",
     cover: "../images/category/ca5.png",
   },
   {
     id: 6,
-    category: "Tools",
+    category: "Release",
     title: "Becoming a Dragonfly",
     cover: "../images/category/ca6.png",
   },
@@ -65,7 +65,7 @@ export const category = [
   },
   {
     id: 8,
-    category: "Technology",
+    category: "Build",
     title: "There's always light at the end of the tunnel",
     cover: "../images/category/ca8.png",
   },
