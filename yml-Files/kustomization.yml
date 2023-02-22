@@ -5,6 +5,7 @@ resources:
   - kibana.yml
   - prometheus-deployment.yml
   - prometheus-service.yml
+  - config-map.yml
 images:
    - name: nginxcomic
      newName: devops2022.azurecr.io/comicbook
