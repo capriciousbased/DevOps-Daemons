@@ -6,14 +6,15 @@ metadata:
 data:
   prometheus.yml: |
     global:
-      scrape_interval: 15s
-       external_labels:
+      scrape_interval:     15s 
+      external_labels:     
         monitor: 'codelab-monitor'
-    scrape-configs:
-      - job_name: comicbook-nginx-exporter
-        scrape_interval: 15s
-        metrics_path: "/metrics"
+    scrape_configs:
+      - job_name: 'comicbook-nginx-exporter'
+        scrape_interval: 15s 
+        metrics_path: /metrics
         static_configs:
-          - targets: ['testcomic-service.comicbook.svc.cluster.local:9113']
+          - targets: ['testcomic-service.comicbook.svc.cluster.local:9113'] 
+
 
      
