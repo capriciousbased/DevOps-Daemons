@@ -6,12 +6,11 @@ data:
   prometheus.yml: |
     global:
       scrape_interval: 30s
-      evaluation_interval: 15s
-    scrape-configs:
-      - job_name: comicbook-nginx-exporter
-        scrape_interval: 15s
-        metrics_path: "/metrics"
-        static_configs:
-        - targets: ['testcomic-service.comicbook.svc.cluster.local:9113']
+      scrape-configs:
+        - job_name: comicbook-nginx-exporter
+          scrape_interval: 15s
+          metrics_path: "/metrics"
+          static_configs:
+          - targets: ['testcomic-service.comicbook.svc.cluster.local:9113']
 
      
