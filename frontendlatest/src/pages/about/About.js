@@ -2,16 +2,16 @@ import React from "react";
 import "./about.css";
 const About = () => {
   return (
-    <div class="section author" id="author">
+    <div className="section author" id="author">
       <div className="about container">
-        <div class="author-content">
-          <p class="section-subtitle">DER AUTOR</p>
+        <div className="author-content">
+          <p className="section-subtitle">DER AUTOR</p>
 
-          <h2 class="h2 section-title">Jörg Miethe</h2>
+          <h2 className="h2 section-title">Jörg Miethe</h2>
 
-          <p class="author-name"></p>
+          <p className="author-name"></p>
 
-          <div class="section-text">
+          <div className="section-text">
             Im Studium sind mir besonders zwei Arten von Professoren in
             Erinnerung geblieben:
             <br />
@@ -48,14 +48,14 @@ const About = () => {
             quetschen konnte....
           </div>
         </div>
-        <div class="author-content">
-          <p class="section-subtitle">DER AUTOR</p>
+        <div className="author-content">
+          <p className="section-subtitle">DER AUTOR</p>
 
-          <h2 class="h2 section-title">Felix Strauß</h2>
+          <h2 className="h2 section-title">Felix Strauß</h2>
 
-          <p class="author-name"></p>
+          <p className="author-name"></p>
 
-          <div class="section-text">
+          <div className="section-text">
             <p>
               Während meines Offizierslehrgangs, war das schwerste Fach:
               „Recht“, die Durchfallquote war recht hoch und unsere Lehrer zuvor

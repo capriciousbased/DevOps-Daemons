@@ -10,6 +10,8 @@ COPY . .
 
 RUN npm run build
 
+RUN npm run test
+
 FROM nginx:alpine
 
 COPY ./metric/index.html /usr/share/nginx/metric

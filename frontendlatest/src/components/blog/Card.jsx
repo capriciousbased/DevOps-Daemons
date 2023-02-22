@@ -11,7 +11,7 @@ export const Card = () => {
       <p class="section-subtitle">KAPITELS</p>
           <h2 class="h2 section-title has-underline">
           Kapitel ihrer Wahl
-            <span class="span has-before"></span>
+            <span className="span has-before"></span>
           </h2>
         <div className='container grid3'>
           {blog.map((item) => (
