@@ -28,28 +28,30 @@ const Contact = () => {
       setEmail('');
       setMessage('');
       setEmailSent(true);
+/*       alert('Than you for your message we will contact you as early as possible.'); */
     } else {
       alert('Please fill in all fields.');
     }
   }
   return (
-    <div class="contactSection" id="contact" aria-label="contact">
-      <div class="container">
+    <div className="contactSection" id="contact" aria-label="contact">
+      <div className="container">
 
-        <div class="wrapper">
-          <p class="section-subtitle">KONTAKT</p>
-          <h2 class="h2 section-title has-underline">
+        <div className="wrapper">
+          <p className="section-subtitle">KONTAKT</p>
+          <h2 className="h2 section-title has-underline">
             Schreiben Sie uns etwas
-            <span class="span has-before"></span>
+            <span className="span has-before"></span>
           </h2>
-          <form action="" class="contact-form">
-            <input type="text" name="name" placeholder="Ihren Namen" required class="input-field" value={name} onChange={e => setName(e.target.value)} />
+          <form action="" className="contact-form">
+            <input type="text" name="name" placeholder="Ihren Namen" required className="input-field" value={name} onChange={e => setName(e.target.value)} />
 
-            <input type="email" name="email_address" placeholder="Ihre E-Mail-Adresse" required class="input-field" value={email} onChange={e => setEmail(e.target.value)} />
+            <input type="email" name="email_address" placeholder="Ihre E-Mail-Adresse" required className="input-field" value={email} onChange={e => setEmail(e.target.value)} />
 
-            <textarea name="message" placeholder="Ihre Nachricht" class="input-field" value={message} onChange={e => setMessage(e.target.value)}></textarea>
+            <textarea name="message" placeholder="Ihre Nachricht" className="input-field" value={message} onChange={e => setMessage(e.target.value)}></textarea>
 
-            <button type="submit" class="submitButton" onClick={submit} >jetzt senden</button>
+            <button type="submit" className="submitButton" onClick={submit} >jetzt senden</button>
+          
           </form>
         </div>
       </div>
