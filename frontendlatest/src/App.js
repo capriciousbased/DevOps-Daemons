@@ -8,9 +8,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 import { DetailsPages } from "./pages/details/DetailsPages"
 import { Account } from "./pages/account/Account"
 import { Create } from "./components/create/Create"
-import Contact from "./pages/account/contact/Contact"
 import About from "./pages/about/About"
 import Pages from "./pages/pages/Pages"
+import Contact from "./pages/contact/Contact"
 
 const App = () => {
   return (

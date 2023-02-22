@@ -50,6 +50,7 @@ const Contact = () => {
             <textarea name="message" placeholder="Ihre Nachricht" className="input-field" value={message} onChange={e => setMessage(e.target.value)}></textarea>
 
             <button type="submit" className="submitButton" onClick={submit} >jetzt senden</button>
+            <span className={emailSent ? 'visible' : null}>Vielen Dank für Ihre Nachricht, wir werden uns umgehend mit Ihnen in Verbindung setzen!</span>
           </form>
         </div>
       </div>
