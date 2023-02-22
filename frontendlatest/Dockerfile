@@ -10,7 +10,7 @@ COPY . .
 
 RUN npm run build
 
-#RUN npm run test -a
+RUN npm run test -a
 
 FROM nginx:alpine
 
