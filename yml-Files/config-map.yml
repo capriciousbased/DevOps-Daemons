@@ -12,6 +12,6 @@ data:
         scrape_interval: 15s
         metrics_path: "/metrics"
         static_configs:
-        -targets: ['testcomic-service.comicbook.svc.cluster.local:9113']
+        - targets: ['testcomic-service.comicbook.svc.cluster.local:9113']
 
      
