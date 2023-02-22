@@ -24,13 +24,13 @@ spec:
             - name: web
               containerPort: 9090
           volumeMounts:
-            - name: prom-config-map
+            - name: prometheus-config
               mountPath: /etc/prometheus
           resources:
             limits:
               cpu: 100m
               memory: 256Mi
       volumes:
-        - name: prom-config-map
+        - name: prometheus-config
           configMap:
-            name: prom-config-map
+            name: prometheus-config
