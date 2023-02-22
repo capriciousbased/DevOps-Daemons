@@ -28,9 +28,8 @@ const Contact = () => {
       setEmail('');
       setMessage('');
       setEmailSent(true);
-/*       alert('Than you for your message we will contact you as early as possible.'); */
     } else {
-      alert('Please fill in all fields.');
+      alert('Bitte füllen Sie alle Felder aus.');
     }
   }
   return (
@@ -51,7 +50,7 @@ const Contact = () => {
             <textarea name="message" placeholder="Ihre Nachricht" className="input-field" value={message} onChange={e => setMessage(e.target.value)}></textarea>
 
             <button type="submit" className="submitButton" onClick={submit} >jetzt senden</button>
-          
+            <span>Vielen Dank für Ihre Nachricht, wir werden uns umgehend mit Ihnen in Verbindung setzen!</span>
           </form>
         </div>
       </div>
