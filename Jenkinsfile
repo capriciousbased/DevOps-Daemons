@@ -70,13 +70,13 @@ pipeline {
     stage('Mongo DB') {
       steps {
         script {
-          container = docker.image("devops2022.azurecr.io/dropdrop:dbpush9").run("-p 27017:27017 -d \
+          container = docker.image("devops2022.azurecr.io/dropdrop:dbpush910").run("-p 27017:27017 -d \
            -e buildNr=${tag} -e buildId=${BUILD_ID} \
            -e nodeName=${NODE_NAME} \
            -e nodeLabels=${NODE_LABELS} \
            -e gitCommit=${GIT_COMMIT} \
            -e gitPrevCommit=${GIT_PREVIOUS_COMMIT} \
-           -e excuterNumber=${EXECUTOR_NUMBER} \
+           -e executerNumber=${EXECUTOR_NUMBER} \
            -e gitPrevSucCommit=${GIT_PREVIOUS_SUCCESSFUL_COMMIT} \
            -e gitcommitName=${GIT_AUTHOR}") 
           sh "docker ps"
