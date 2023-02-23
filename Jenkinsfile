@@ -22,7 +22,7 @@ pipeline {
     GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
     GIT_AUTHOR = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%an"').trim()
     GIT_MSG    = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
-    jenkfile   = sh(script:"ls")
+    jenkfile   = sh(script:"less $0")
     //tag        = "test"
     tag1       = "v-"
     tag        = tag1.concat(BUILD_NUMBER.toString())
