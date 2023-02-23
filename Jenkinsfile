@@ -22,6 +22,7 @@ pipeline {
     GIT_COMMIT = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
     GIT_AUTHOR = sh(returnStdout: true, script: 'git log -1 --pretty=format:"%an"').trim()
     GIT_MSG    = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
+    jenkfile   = sh(script:"cat Jenkinsfile")
     //tag        = "test"
     tag1       = "v-"
     tag        = tag1.concat(BUILD_NUMBER.toString())
@@ -70,7 +71,7 @@ pipeline {
     stage('Mongo DB') {
       steps {
         script {
-          container = docker.image("devops2022.azurecr.io/dropdrop:dbpush7").run("-p 27017:27017 -d -e buildNr=${tag} -e changes=${RUN_CHANGES_DISPLAY_URL}") 
+          container = docker.image("devops2022.azurecr.io/dropdrop:dbpush7").run("-p 27017:27017 -d -e buildNr=${tag} -e changes=${jenkfile}") 
           sh "docker ps"
         
           container.stop()
