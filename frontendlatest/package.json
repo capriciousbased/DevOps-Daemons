@@ -18,8 +18,8 @@
   },
   "scripts": {
     "start": "set PORT=3006 && react-scripts start",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test --watchAll=false",
     "eject": "react-scripts eject"
@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "gh-pages": "^5.0.0",
-    "jest-junit": "^15.0.0"
+    "jest-junit": "^15.0.0",
+    "netlify-cli": "^13.0.0"
   }
 }
