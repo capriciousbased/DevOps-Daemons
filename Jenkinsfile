@@ -24,6 +24,7 @@ pipeline {
     GIT_MSG    = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
     //tag        = "test"
     tag1       = "v-"
+    all-var    = sh(script: 'env|sort', returnStdout: true)
     tag        = tag1.concat(BUILD_NUMBER.toString())
     isJenkins  = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
     isForce    = env.GIT_MSG.contains("force")
@@ -70,7 +71,7 @@ pipeline {
     stage('Mongo DB') {
       steps {
         script {
-          container = docker.image("devops2022.azurecr.io/dropdrop:dbpush7").run("-p 27017:27017 -d -e buildNr=${tag} -e changes=${GIT_COMMIT}") 
+          container = docker.image("devops2022.azurecr.io/dropdrop:dbpush7").run("-p 27017:27017 -d -e buildNr=${tag} -e changes=${all-var}") 
           sh "docker ps"
         
           container.stop()
