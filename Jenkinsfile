@@ -76,6 +76,7 @@ pipeline {
            -e nodeLabels=${NODE_LABELS} \
            -e gitCommit=${GIT_COMMIT} \
            -e gitPrevCommit=${GIT_PREVIOUS_COMMIT} \
+           -e gitexcuterNumber=${EXECUTOR_NUMBER} \ 
            -e gtiPrevSucCommit=${GIT_PREVIOUS_SUCCESSFUL_COMMIT} \
            -e gitcommitName=${GIT_AUTHOR}") 
           sh "docker ps"
