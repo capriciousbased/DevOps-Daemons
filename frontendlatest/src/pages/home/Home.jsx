@@ -4,7 +4,6 @@ import { Category } from "../../components/category/Category"
 import Foreword from "../../components/foreword/Foreword";
 import Contact from "../contact/Contact";
 
-
 export const Home = () => {
   return (
     <>
