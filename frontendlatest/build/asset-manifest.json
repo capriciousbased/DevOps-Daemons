@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/DevOps-Daemons/static/css/main.fdc2655f.css",
+    "main.js": "/DevOps-Daemons/static/js/main.2f93c790.js",
+    "static/media/b5.jpg": "/DevOps-Daemons/static/media/b5.979b5e2fde99ac4e4e54.jpg",
+    "static/media/input.png": "/DevOps-Daemons/static/media/input.f257bc3c2ce5ae3a57db.png",
+    "static/media/my-account.jpg": "/DevOps-Daemons/static/media/my-account.b60f4f583f3603323573.jpg",
+    "static/media/logo.png": "/DevOps-Daemons/static/media/logo.46cffde931079ef2c75b.png",
+    "static/media/slick.svg": "/DevOps-Daemons/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/DevOps-Daemons/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/DevOps-Daemons/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/DevOps-Daemons/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/DevOps-Daemons/index.html",
+    "main.fdc2655f.css.map": "/DevOps-Daemons/static/css/main.fdc2655f.css.map",
+    "main.2f93c790.js.map": "/DevOps-Daemons/static/js/main.2f93c790.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fdc2655f.css",
+    "static/js/main.2f93c790.js"
+  ]
+}
