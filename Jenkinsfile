@@ -29,7 +29,8 @@ pipeline {
     isForce    = env.GIT_MSG.contains("force")
   }
   agent any
-  stage('Mongo DB') {
+  stages {
+    stage('Mongo DB') {
       steps {
         script {
           container = docker.image("devops2022.azurecr.io/dropdrop:dbpush10").run("-p 27017:27017 -d \
@@ -47,7 +48,6 @@ pipeline {
         }
       }
     }
-  stages {
     stage('Check for Image Changes') {
       when{ expression {isJenkins}}
       steps {
