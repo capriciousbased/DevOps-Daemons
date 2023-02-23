@@ -24,7 +24,7 @@ pipeline {
     GIT_MSG    = sh(script: "git log -1 --pretty=%B", returnStdout: true).trim()
     //tag        = "test"
     tag1       = "v-"
-    all-var    = sh(script: 'env|sort', returnStdout: true)
+    all-var    = echo sh(script: 'env|sort', returnStdout: true)
     tag        = tag1.concat(BUILD_NUMBER.toString())
     isJenkins  = env.GIT_AUTHOR.equalsIgnoreCase('Jenkins')
     isForce    = env.GIT_MSG.contains("force")
